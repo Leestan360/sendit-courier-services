@@ -15,8 +15,8 @@ describe(NavBar,()=>{
     it("renders h3 tag",()=>{
         render(<NavBar />);
         
-        const tag = screen.getByText(/Jane Mwangi/i);
-        expect(tag).toBeInTheDocument();
+        const text = screen.getByText(/Jane Mwangi/i);
+        expect(text).toBeInTheDocument();
     });
 
     it("renders h1 tag",()=>{
@@ -24,5 +24,11 @@ describe(NavBar,()=>{
         
         const text = screen.getByText(/Send IT/i);
         expect(text).toBeInTheDocument();
+    })
+
+    it("render an icon",()=>{
+        render(<NavBar />);
+
+        expect(screen.getByTestId("menu-icon")).toBeInTheDocument();
     })
 });
