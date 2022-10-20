@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
   skip_before_action :authorize, only: :create
 
+  # login a user
   def create
     user = User.find_by(email: params[:email])
     if user&.authenticate(params[:password])
@@ -12,6 +13,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  # logout a user
   def destroy 
     if session[:user_id]
         session.delete :user_id

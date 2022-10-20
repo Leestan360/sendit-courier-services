@@ -98,6 +98,9 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.16.3)
+    minitest-rails (7.0.0)
+      minitest (~> 5.10)
+      railties (~> 7.0.0)
     net-imap (0.3.1)
       net-protocol
     net-pop (0.1.2)
@@ -163,6 +166,8 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.12)
   bcrypt (~> 3.1.7)
   debug
+  minitest
+  minitest-rails
   pg (~> 1.1)
   puma (~> 5.0)
   rack-cors
