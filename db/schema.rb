@@ -20,6 +20,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_19_101241) do
     t.string "email"
     t.string "phone_number"
     t.string "password_digest"
+  end
+
+  create_table "parcels", force: :cascade do |t|
+    t.integer "weight"
+    t.integer "length"
+    t.integer "width"
+    t.string "category_type"
+    t.boolean "perishabile"
+    t.boolean "fragility"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
+  resources :parcels, only: [:index, :create, :show, :destroy, :update]
 end
