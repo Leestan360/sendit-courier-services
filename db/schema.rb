@@ -10,16 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_19_101241) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_21_070910) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "phone_number"
-    t.string "password_digest"
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "parcel_id", null: false
+    t.string "delivery_status"
+    t.string "delivery_type"
+    t.string "delivery_location"
+    t.string "pickup_location"
+    t.string "payment_method"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parcel_id"], name: "index_orders_on_parcel_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "parcels", force: :cascade do |t|
@@ -29,9 +35,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_19_101241) do
     t.string "category_type"
     t.boolean "perishabile"
     t.boolean "fragility"
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone_number"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "orders", "parcels"
+  add_foreign_key "orders", "users"
 end
