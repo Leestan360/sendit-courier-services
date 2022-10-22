@@ -10,12 +10,12 @@ const DashBoard = () => {
   };
 
   return (
-    <div className="font-work">
-      <div className="border-transparent w-[300px] xsm:w-[200px] relative bg-white shadow  flex flex-col justify-between">
+    <div className="font-work bg-blue-900">
+      <div className="border-transparent w-[300px] xsm:w-[200px] relative bg-blue-900 shadow h-screen flex flex-col justify-between text-white">
         <div>
           <ul className="mt-6 flex flex-col ">
             <div
-              className="flex justify-start items-center py-3 pl-5 text-slate-800 hover:text-blue-800 hover:shadow-md  cursor-pointer "
+              className="flex justify-start items-center py-3 pl-5 hover:text-white hover:bg-blue-800 m-2 hover:rounded-lg cursor-pointer "
               onClick={handleDisableNavbar}
             >
               <Link to={"/"} className="flex">
@@ -24,7 +24,7 @@ const DashBoard = () => {
               </Link>
             </div>
             <div
-              className="flex justify-start items-center py-3 pl-5 text-slate-800  hover:text-blue-800 hover:shadow-md  cursor-pointer "
+              className="flex justify-start items-center py-3 pl-5  hover:text-white hover:bg-blue-800 m-2 hover:rounded-lg cursor-pointer "
               onClick={handleDisableNavbar}
             >
               <Link to={"/delivery"} className="flex">
@@ -35,7 +35,7 @@ const DashBoard = () => {
               </Link>
             </div>
             <div
-              className="flex justify-start items-center py-3 pl-5 text-slate-800  hover:text-blue-800 hover:shadow-md  cursor-pointer "
+              className="flex justify-start items-center py-3 pl-5  hover:text-white hover:bg-blue-800 m-2 hover:rounded-lg cursor-pointer "
               onClick={handleDisableNavbar}
             >
               <Link to={"/delivered"} className="flex">
@@ -46,6 +46,10 @@ const DashBoard = () => {
               </Link>
             </div>
           </ul>
+        </div>
+        <div className="p-7 flex">
+        <i class='bx bx-exit bx-sm'></i>
+        <h3 className="px-2">Logout</h3>
         </div>
       </div>
     </div>
