@@ -10,7 +10,7 @@ const NavBar = () => {
 
 
   return (
-    <div className="flex justify-between items-center text-slate-800 shadow p-2">
+    <div className="flex justify-between items-center text-slate-800 shadow-lg p-2">
       <div className="flex items-center">
         <i class="bx bx-menu bx-md mx-2" data-testid="menu-icon" onClick={handleToggle} ></i>
         <h1 className="font-open text-2xl">Send IT</h1>
