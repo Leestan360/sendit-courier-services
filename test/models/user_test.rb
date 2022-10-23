@@ -13,4 +13,22 @@ class UserTest < ActiveSupport::TestCase
     puts "first name present"
   end
 
+  test "last_name must be present" do
+    user = User.create(last_name: " ")
+    assert_not user.valid?, "last_name is an empty string"
+    puts "last name present"
+  end
+
+  test "email must be present and unique" do
+    user = User.create(email: " ")
+    assert_not user.valid? && user.unique?, "email is an empty string"
+    puts "email present and unique"
+  end
+
+  test "phone_number must be present, minimum 9 characters and unique" do
+    user = User.create(phone_number: " ")
+    assert_not user.valid? && user.unique? && user.length >= 9, "phone_number is an empty string"
+    puts "phone_number present, has 9 characters and unique"
+  end
+
 end
