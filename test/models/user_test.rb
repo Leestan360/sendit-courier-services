@@ -6,4 +6,11 @@ class UserTest < ActiveSupport::TestCase
     assert user.valid?
     puts "user is valid"
   end
+
+  test "first_name must be present" do
+    user = User.create(first_name: " ")
+    assert_not user.valid?, "first_name is an empty string"
+    puts "first name present"
+  end
+
 end
