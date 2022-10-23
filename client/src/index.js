@@ -5,10 +5,12 @@ import App from "./components/App";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import toggleReducer from './features/toggle';
+import signupReducer from './features/signup';
 
 const store = configureStore({
   reducer: {
     toggle:toggleReducer,
+    app:signupReducer,
   },
 });
 
