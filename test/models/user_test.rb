@@ -28,7 +28,13 @@ class UserTest < ActiveSupport::TestCase
   test "phone_number must be present, minimum 9 characters and unique" do
     user = User.create(phone_number: " ")
     assert_not user.valid? && user.unique? && user.length >= 9, "phone_number is an empty string"
-    puts "phone_number present, has 9 characters and unique"
+    puts "phone_number present, has a minimum of 9 characters and unique"
+  end
+
+  test "password must be present and a minimum of 6 characters" do
+    user = User.create(password: " ")
+    assert_not user.valid? && user.length >= 6, "password is an empty string"
+    puts "password present and has a minimum of 6 characters"
   end
 
 end
