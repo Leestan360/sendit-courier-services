@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createPost } from "../../features/signup";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
 
@@ -9,13 +9,19 @@ const Signup = () => {
   const [ data, setData ] = useState();
   const dispatch = useDispatch();
   const { signupState, loading, error } = useSelector((state) => ({ ...state.signup }));
+  const navigate = useNavigate();
+
+  //navigates user to loginpage
+  const handleNavigateLogin = () =>{
+    navigate("/login")
+  }
 
   //handles inputs from signup form 
   const handleInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setUser({ ...user, [name]: value.toLowerCase() });
-    // console.log(user);
+    console.log(user);
   };
 
   //submit userdata to database
@@ -65,7 +71,7 @@ const Signup = () => {
               >
                 Already have account?
                 <p
-                  //   onClick={handleNavigate}
+                    onClick={handleNavigateLogin}
                   className="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none text-gray-800 cursor-pointer ml-2"
                 >
                   Login here
@@ -160,6 +166,25 @@ const Signup = () => {
                     <input
                       id="myInput"
                       name="password"
+                      // type={showpass ? "text" : "password"}
+                      type="password"
+                      className="bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+                      onChange={handleInput}
+                    />
+                  </div>
+                </div>
+                <div className="mt-3 w-full">
+                  <label
+                    htmlFor="myInput"
+                    className="text-sm font-medium leading-none text-gray-800 "
+                  >
+                    {" "}
+                    Password Confirmation{" "}
+                  </label>
+                  <div className="relative flex items-center justify-center">
+                    <input
+                      id="password_confirmation"
+                      name="password_confirmation"
                       // type={showpass ? "text" : "password"}
                       type="password"
                       className="bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"

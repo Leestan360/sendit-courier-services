@@ -5,7 +5,7 @@ export const createPost = createAsyncThunk(
   "signup/createPost",
   async (user) => {
     try {
-      let request = await fetch("http://localhost:3000/users", {
+      let request = await fetch("/signup", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -17,6 +17,7 @@ export const createPost = createAsyncThunk(
           email: user.email,
           phone_number: user.phone_number,
           password: user.password,
+          password_confirmation: user.password_confirmation,
         }),
       });
       let data = await request.json();
