@@ -5,6 +5,7 @@ import Home from "../pages/home/Home";
 import DeliveryDetails from "../pages/deliveryDetails/DeliveryDetails";
 import DeliveryLocation from "../pages/deliveryLocation/DeliveryLocation";
 import DeliveryPayment from "../pages/deliveryPayment/DeliveryPayment";
+import MyDeliveries from "../pages/myDeliveries/MyDeliveries";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/delivery" element={<DeliveryDetails />} />
           <Route path="/location" element={<DeliveryLocation />} />
           <Route path="/payment" element={<DeliveryPayment />} />
+          <Route path="/mydeliveries" element ={<MyDeliveries />} />
         </Routes>
       </Router>
     </div>
