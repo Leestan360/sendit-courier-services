@@ -1,3 +1,5 @@
+puts "Seeding Data"
+
 Parcel.create([
     {
         weight: 3,
@@ -24,3 +26,5 @@ Parcel.create([
         fragility: false
     }
 ])
+
+puts "Finished Seeding Data"

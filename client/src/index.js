@@ -10,7 +10,7 @@ import signupReducer from './features/signup';
 const store = configureStore({
   reducer: {
     toggle:toggleReducer,
-    app:signupReducer,
+    signup:signupReducer,
   },
 });
 

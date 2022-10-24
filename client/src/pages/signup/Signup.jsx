@@ -1,27 +1,43 @@
-import { useState } from 'react';
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { signupInfo, createPost } from "../../features/signup";
+import { createPost } from "../../features/signup";
 import { useSelector } from "react-redux";
 
 const Signup = () => {
-    const [ user, setUser ] = useState({});
-    const dispatch = useDispatch();
-    const { signup, loading } = useSelector((state)=> ({...state.app}));
 
-    const handleInput = (event)=>{
-        const name = event.target.name;
-        const value = event.target.value;
-        setUser({...user, [name]:value.toLowerCase()});
-        console.log(user);
-    }
-    
-    const handleSubmit = (event)=>{
-        event.preventDefault();
-        dispatch(createPost(user));
-        console.log( signup )
-    }
+  const [user, setUser] = useState({});
+  const [ data, setData ] = useState();
+  const dispatch = useDispatch();
+  const { signupState, loading, error } = useSelector((state) => ({ ...state.signup }));
 
+  //handles inputs from signup form 
+  const handleInput = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setUser({ ...user, [name]: value.toLowerCase() });
+    // console.log(user);
+  };
 
+  //submit userdata to database
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(createPost(user));
+    // setData(signupState);
+    // console.log(signupState);
+    // console.log(data);
+    // console.log(loading);
+  };
+
+  //fetches user data stored in redux state
+  useEffect(()=>{
+    console.log(signupState);
+    console.log(error);
+  },[signupState])
+
+  // console.log(signupState);
+  // console.log(loading);
+  // console.log(error);
+  
   return (
     <div>
       {/* <Navbar /> */}
@@ -49,7 +65,7 @@ const Signup = () => {
               >
                 Already have account?
                 <p
-                //   onClick={handleNavigate}
+                  //   onClick={handleNavigate}
                   className="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none text-gray-800 cursor-pointer ml-2"
                 >
                   Login here
@@ -72,7 +88,7 @@ const Signup = () => {
                     aria-labelledby="firstname"
                     name="first_name"
                     type="text"
-                    className="bg-gray-100 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
+                    className="bg-gray-100 border rounded text-xs font-medium leading-none placeholder-gray-400 text-gray-800 py-3 w-full pl-3 mt-2"
                     placeholder="e.g: John"
                     onChange={handleInput}
                   />
@@ -90,7 +106,7 @@ const Signup = () => {
                     aria-labelledby="lastname"
                     name="last_name"
                     type="text"
-                    className="bg-gray-100 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
+                    className="bg-gray-100 border rounded text-xs font-medium leading-none placeholder-gray-400 text-gray-800 py-3 w-full pl-3 mt-2"
                     placeholder="e.g: Doe "
                     onChange={handleInput}
                   />
@@ -108,10 +124,29 @@ const Signup = () => {
                     aria-labelledby="email"
                     name="email"
                     type="email"
-                    className="bg-gray-100 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
+                    className="bg-gray-100 border rounded text-xs font-medium leading-none placeholder-gray-400 text-gray-800 py-3 w-full pl-3 mt-2"
                     placeholder="e.g: john@gmail.com "
                     onChange={handleInput}
                   />
+                </div>
+                <div className="mt-3 w-full">
+                  <label
+                    htmlFor="myInput"
+                    className="text-sm font-medium leading-none text-gray-800 "
+                  >
+                    {" "}
+                    Phone Number{" "}
+                  </label>
+                  <div className="relative flex items-center justify-center">
+                    <input
+                      id="number"
+                      name="phone_number"
+                      type="number"
+                      placeholder="e.g: 0785238923"
+                      className="bg-gray-100 border rounded text-xs font-medium leading-none placeholder-gray-400 text-gray-800 py-3 w-full pl-3 mt-2"
+                      onChange={handleInput}
+                    />
+                  </div>
                 </div>
                 <div className="mt-3 w-full">
                   <label
@@ -125,9 +160,10 @@ const Signup = () => {
                     <input
                       id="myInput"
                       name="password"
-                      //   type={showpass ? "text" : "password"}
+                      // type={showpass ? "text" : "password"}
+                      type="password"
                       className="bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
-                        onChange={handleInput}
+                      onChange={handleInput}
                     />
                   </div>
                 </div>

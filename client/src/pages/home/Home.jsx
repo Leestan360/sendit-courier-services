@@ -8,6 +8,14 @@ import Footer from "../../components/footer/Footer";
 const Home = () => {
   const display = useSelector((state) => state.toggle.value);
 
+  const { signupState, loading, error } = useSelector((state) => ({ ...state.signup }));
+
+  // console.log(signupState);
+  // console.log(loading);
+  // console.log(error);
+  
+
+
   return (
     <div>
       <NavBar />
