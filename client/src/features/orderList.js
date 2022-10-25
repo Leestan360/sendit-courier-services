@@ -8,12 +8,9 @@ export const orderListSlice = createSlice({
         setOrderList:( state, action )=>{
             state.value = action.payload;
         },
-        // disableNavbar:(state)=>{
-        //     state.value = false;
-        // }
     },
 });
 
-export const { setOrderList,disableNavbar } = orderListSlice.actions;
+export const { setOrderList } = orderListSlice.actions;
 
 export default orderListSlice.reducer

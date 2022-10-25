@@ -7,7 +7,7 @@ export const setOrder = createAsyncThunk("order/setOrder", async (order) => {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "content-type": "application/json",
+          "content-type":"application/json",
         },
         body: JSON.stringify({
             card_name:order.card_name,
