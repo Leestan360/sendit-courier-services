@@ -11,6 +11,5 @@ Rails.application.routes.draw do
 
   resources :parcels, only: [:index, :create, :show, :destroy, :update]
   resources :users, only: [:index, :create]
-  resources :orders, only: [:index, :create, :show, :destroy, :update]
-  
+
 end
