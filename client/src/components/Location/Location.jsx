@@ -33,16 +33,16 @@ const Location = () => {
               <label htmlFor="pickup">Pickup Location</label>
               <input
                 type="text"
-                name="pickup"
+                name="pickup_location"
                 onChange={handleInput}
                 className="border-b-2 outline-none mx-3 border-slate-700"
               />
             </div>
             <div className="flex items-end font-open my-3">
-              <label htmlFor="dropoff">Dropoff Location</label>
+              <label htmlFor="delivery_location">Delivery Location</label>
               <input
                 type="text"
-                name="dropoff"
+                name="delivery_location"
                 onChange={handleInput}
                 className="border-b-2 outline-none mx-3 border-slate-700"
               />

@@ -37,7 +37,7 @@ const SendDelivery = () => {
             <h3 className="text-md font-bold font-work">Measurements</h3>
             <hr className="my-2 border" />
             <div className="flex flex-col md:flex-row justify-around mt-[30px]">
-              <div className="flex flex-col justify-center md:justify-around">
+              {/* <div className="flex flex-col justify-center md:justify-around">
                 <label htmlFor="length" className="py-2 font-work">
                   Choose Length
                 </label>
@@ -52,7 +52,7 @@ const SendDelivery = () => {
                   <option value="50">10metres to 20metres</option>
                   <option value="100">Above 30metres</option>
                 </select>
-              </div>
+              </div> */}
               <div className="flex flex-col">
                 <label htmlFor="weight" className="py-2 font-work">
                   Choose Weight
@@ -69,7 +69,7 @@ const SendDelivery = () => {
                   <option value="100">100kg to 200kg</option>
                 </select>
               </div>
-              <div className="flex flex-col">
+              {/* <div className="flex flex-col">
                 <label htmlFor="width" className="py-2 font-work">
                   Choose Width
                 </label>
@@ -84,7 +84,7 @@ const SendDelivery = () => {
                   <option value="50">10metres to 20metres</option>
                   <option value="100">Above 30metres</option>
                 </select>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="mt-10">
@@ -96,7 +96,7 @@ const SendDelivery = () => {
                   Choose Catergory
                 </label>
                 <select
-                  name="catergory"
+                  name="category_type"
                   id=""
                   onChange={handleInput}
                   className="p-2 bg-white border border-blue-300 rounded outline-none font-open max-w-[220px]"
@@ -112,7 +112,7 @@ const SendDelivery = () => {
                   Choose Perishability
                 </label>
                 <select
-                  name="perishability"
+                  name="perishable"
                   id=""
                   onChange={handleInput}
                   className="p-2 bg-white border border-blue-300 rounded outline-none font-open max-w-[220px]"

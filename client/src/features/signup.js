@@ -5,7 +5,7 @@ export const createPost = createAsyncThunk(
   "signup/createPost",
   async (user) => {
     try {
-      let request = await fetch("/logout", {
+      let request = await fetch("/signup", {
         method: "POST",
         headers: {
           Accept: "application/json",
