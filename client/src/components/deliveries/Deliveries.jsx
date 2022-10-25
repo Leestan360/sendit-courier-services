@@ -81,7 +81,6 @@ function Deliveries() {
       let data = await request.json();
       console.log(data);
       setPosts(data);
-
     }
     getData();
   },[])

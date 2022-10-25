@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
 import { useSelector } from 'react-redux';
 
-function ViewDel ( { items, itemId } ) {
-  console.log( items );
+function ViewDel ( ) {
+
   
   const id = useSelector( ( state ) => state.parcelID.value );
 
@@ -50,7 +50,7 @@ function ViewDel ( { items, itemId } ) {
                 <div>
                   <h3 className="text-base font-work font-extrabold">Weight</h3>
                   <p className="w-[200px] rounded-full bg-indigo-50 text-blue-800 ">
-                    <span className="text-3xl"> 53 </span>kilograms
+                    <span className="text-3xl">{parcel.weight}</span>kilograms
                   </p>
                 </div>
               </div>
@@ -61,7 +61,7 @@ function ViewDel ( { items, itemId } ) {
                 <div>
                   <h3 className="text-base font-work font-extrabold">Category Type</h3>
                   <p className="w-[200px] rounded-full bg-indigo-50 text-blue-800 ">
-                    <span className="text-3xl"> </span>electronics
+                    <span className="text-3xl">{parcel.category_type} </span>
                   </p>
                 </div>
               </div>
