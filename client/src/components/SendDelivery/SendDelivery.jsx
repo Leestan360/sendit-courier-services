@@ -1,11 +1,31 @@
 import { useNavigate } from "react-router-dom";
+// import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setOrder } from "../../features/order";
+import { setOrderList } from "../../features/orderList";
 
 const SendDelivery = () => {
   const navigate = useNavigate();
+  // const [ option, setOption ] = useState({})
+  const option = useSelector((state) => state.orderList.value);
 
   const handleNavigate = () => {
     navigate("/location");
   };
+
+  const dispatch = useDispatch();
+  const { orderState, loading, error } = useSelector((state)=> ({...state.order}));
+
+  const handleInput = (event)=>{
+    const name = event.target.name;
+    const value = event.target.value;
+    dispatch(setOrderList({...option, [name]:value}));
+    // setOption({ ...option, [name]:value});
+    console.log(option);
+  }
+
+  
+
   return (
     <div className="bg-gray-100 w-[100%] text-slate-900">
       <h2 className="font-open text-lg font-bold mx-5 my-2">Parcel Delivery</h2>
@@ -18,12 +38,13 @@ const SendDelivery = () => {
             <hr className="my-2 border" />
             <div className="flex flex-col md:flex-row justify-around mt-[30px]">
               <div className="flex flex-col justify-center md:justify-around">
-                <label htmlFor="measurements" className="py-2 font-work">
-                  Choose Measurement
+                <label htmlFor="length" className="py-2 font-work">
+                  Choose Length
                 </label>
                 <select
-                  name="length"
+                  name="delivery_length"
                   id=""
+                  onChange={handleInput}
                   className="p-2 bg-white border border-blue-300 rounded outline-none font-open max-w-[220px]"
                 >
                   <option value="null">-- null --</option>
@@ -33,12 +54,13 @@ const SendDelivery = () => {
                 </select>
               </div>
               <div className="flex flex-col">
-                <label htmlFor="measurements" className="py-2 font-work">
+                <label htmlFor="weight" className="py-2 font-work">
                   Choose Weight
                 </label>
                 <select
-                  name="measurements"
+                  name="weight"
                   id=""
+                  onChange={handleInput}
                   className="p-2 bg-white border border-blue-300 rounded outline-none font-open max-w-[220px]"
                 >
                   <option value="null">--null--</option>
@@ -48,12 +70,13 @@ const SendDelivery = () => {
                 </select>
               </div>
               <div className="flex flex-col">
-                <label htmlFor="measurements" className="py-2 font-work">
+                <label htmlFor="width" className="py-2 font-work">
                   Choose Width
                 </label>
                 <select
                   name="width"
                   id=""
+                  onChange={handleInput}
                   className="p-2 bg-white border border-blue-300 rounded outline-none font-open max-w-[220px]"
                 >
                   <option value="null">-- null --</option>
@@ -69,12 +92,13 @@ const SendDelivery = () => {
             <hr className="my-2 border" />
             <div className="flex flex-col md:flex-row justify-around mt-[30px]">
               <div className="flex flex-col">
-                <label htmlFor="measurements" className="py-2 font-work">
+                <label htmlFor="catergory" className="py-2 font-work">
                   Choose Catergory
                 </label>
                 <select
-                  name="length"
+                  name="catergory"
                   id=""
+                  onChange={handleInput}
                   className="p-2 bg-white border border-blue-300 rounded outline-none font-open max-w-[220px]"
                 >
                   <option value="null">-- null --</option>
@@ -84,12 +108,13 @@ const SendDelivery = () => {
                 </select>
               </div>
               <div className="flex flex-col">
-                <label htmlFor="measurements" className="py-2 font-work">
+                <label htmlFor="perishability" className="py-2 font-work">
                   Choose Perishability
                 </label>
                 <select
-                  name="measurements"
+                  name="perishability"
                   id=""
+                  onChange={handleInput}
                   className="p-2 bg-white border border-blue-300 rounded outline-none font-open max-w-[220px]"
                 >
                   <option value="null">-- null --</option>
@@ -98,12 +123,13 @@ const SendDelivery = () => {
                 </select>
               </div>
               <div className="flex flex-col">
-                <label htmlFor="measurements" className="py-2 font-work">
+                <label htmlFor="fragility" className="py-2 font-work">
                   Choose Fragility
                 </label>
                 <select
-                  name="width"
+                  name="fragility"
                   id=""
+                  onChange={handleInput}
                   className="p-2 bg-white border border-blue-300 rounded outline-none font-open max-w-[220px]"
                 >
                   <option value="null">-- null --</option>
