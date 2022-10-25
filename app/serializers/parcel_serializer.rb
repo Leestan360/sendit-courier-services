@@ -1,3 +1,3 @@
 class ParcelSerializer < ActiveModel::Serializer
-  attributes :id, 
+  attributes :id, :weight, :category_type, :perishabile, :fragility, :name
 end
