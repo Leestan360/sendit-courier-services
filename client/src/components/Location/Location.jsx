@@ -39,7 +39,7 @@ const Location = () => {
               />
             </div>
             <div className="flex items-end font-open my-3">
-              <label htmlFor="delivery_location">Dropoff Location</label>
+              <label htmlFor="delivery_location">Delivery Location</label>
               <input
                 type="text"
                 name="delivery_location"
