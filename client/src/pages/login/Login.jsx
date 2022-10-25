@@ -39,7 +39,7 @@ const Login = () => {
     useEffect(()=>{
       console.log(loginState);
       console.log(error);
-    },[loginState])
+    }, [loginState, error])
 
   return (
     <div className="bg-indigo-50 font-jost mt-[40px]">
@@ -76,7 +76,7 @@ const Login = () => {
               onSubmit={handleSubmit}
               className="xxs:w-[250px] xsm:w-[400px] sm:w-[500px] md:w-[600px] lg:w-[300px] mt-5"
             >
-              <div>
+              {/* <div>
                 <label
                   htmlFor="firstname"
                   className="text-sm font-medium leading-none text-gray-800 "
@@ -111,7 +111,7 @@ const Login = () => {
                   placeholder="e.g: Doe "
                   onChange={handleInput}
                 />
-              </div>
+              </div> */}
               <div className="mt-3 w-full">
                 <label
                   htmlFor="email"

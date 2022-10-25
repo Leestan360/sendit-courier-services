@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // using redux to login user by retrieving their information from the database
-export const loginUser = createAsyncThunk("login/loginUser", async (user) => {
+export const loginUser = createAsyncThunk("login", async (user) => {
   try {
     let request = await fetch("/login", {
         method: "POST",
         headers: {
           Accept: "application/json",
-          "content-type": "application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email: user.email,
@@ -15,8 +15,7 @@ export const loginUser = createAsyncThunk("login/loginUser", async (user) => {
         }),
       });
     let data = await request.json();
-    console.log(request);
-    if (request.ok) {
+    if (request.status === 200) {
       //  console.log(data, "yes");
       return data;
     } else {
@@ -27,6 +26,7 @@ export const loginUser = createAsyncThunk("login/loginUser", async (user) => {
     console.log(error);
   }
 });
+
 
 export const loginSlice = createSlice({
   name: "login",
