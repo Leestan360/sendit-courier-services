@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_19_101241) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_19_162515) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "parcels", force: :cascade do |t|
+    t.integer "weight"
+    t.string "category_type"
+    t.boolean "perishable"
+    t.boolean "fragility"
+    t.datetime "expected_time"
+    t.datetime "delivered_time"
+    t.string "delivery_location"
+    t.string "pickup_location"
+    t.string "payment_method"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
