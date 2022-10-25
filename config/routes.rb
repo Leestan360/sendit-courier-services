@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :statuses
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -12,6 +11,6 @@ Rails.application.routes.draw do
 
   resources :parcels, only: [:index, :create, :show, :destroy, :update]
   resources :users, only: [:index, :create]
-  resources :orders, only: [:index, :create, :show, :destroy, :update]
-  
+  resources :statuses, only: [:index]
+
 end
