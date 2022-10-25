@@ -74,14 +74,9 @@ function Deliveries() {
          navigate("/viewdelivery");
       };
   return (
-    <div className="grid gap-2 lg:grid-cols-4">
+    <div className="grid gap-2 lg:grid-cols-4 max-w-[1300px] w-[100%]">
                 {posts.map((items, key) => (
-                    <div className="w-full rounded-lg shadow-md lg:max-w-sm bg-white" key={key}>
-                        {/* <img
-                            className="object-cover w-full h-48"
-                            src={items.img}
-                            alt="image" /> */}
-                        
+                    <div className="w-full rounded-lg shadow-md lg:max-w-sm  bg-white" key={key}>
                         <div className="p-4">
                             <h4 className="text-xl font-semibold text-slate-800">
                                 
