@@ -39,7 +39,7 @@ const Login = () => {
     useEffect(()=>{
       console.log(loginState);
       console.log(error);
-    }, [loginState, error])
+    }, [loginState])
 
   return (
     <div className="bg-indigo-50 font-jost mt-[40px]">
