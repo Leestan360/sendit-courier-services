@@ -134,7 +134,7 @@ function ViewDel() {
                     Delivery Location
                   </h3>
                   <p className="w-[200px] rounded-full bg-indigo-50 text-blue-800 ">
-                    <span className="text-xl font-work"> {location} </span>
+                    <span className="text-xl font-work"> {parcel.location} </span>
                   </p>
                 </div>
               </div>

@@ -1,25 +1,25 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import DeliveryDetails from "./DeliveryDetails";
-import { setCurrentUser } from "../../features/currentUser";
-import messenger from './Messenger-pana.svg'
-import { useNavigate } from "react-router-dom";
+// import { setCurrentUser } from "../../features/currentUser";
+// import messenger from './Messenger-pana.svg'
+// import { useNavigate } from "react-router-dom";
 
 function Deliveries() {
   const [posts, setPosts] = useState([]);
-  const [filteredPosts, setFilteredPosts] = useState([]);
+  // const [filteredPosts, setFilteredPosts] = useState([]);
   const [ hasPosts, setHasPosts ] = useState(false);
   // const user = JSON.parse(localStorage.getItem("user"))
   const currentUser = useSelector((state) => ({ ...state.currentUser.value }));
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const { signupState } = useSelector((state) => ({ ...state.signup }));
   const { loginState } = useSelector((state) => ({
     ...state.login,
   }));
   const [user, setUser] = useState({});
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   useEffect(() => {
     const getData = async () => {
