@@ -38,7 +38,7 @@ const DashBoard = () => {
               className="flex justify-start items-center py-3 pl-5  hover:text-white hover:bg-blue-800 m-2 hover:rounded-lg cursor-pointer "
               onClick={handleDisableNavbar}
             >
-              <Link to={"/delivered"} className="flex">
+              <Link to={"/mydeliveries"} className="flex">
                 <i class="bx bx-package bx-sm mx-2"></i>
                 <li className="flex cursor-pointer  text-base">
                   My Deliveries
