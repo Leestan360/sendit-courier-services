@@ -42,11 +42,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_090011) do
 
   create_table "parcels", force: :cascade do |t|
     t.integer "weight"
-    t.integer "length"
-    t.integer "width"
-    t.string "category_type"
-    t.boolean "perishabile"
+    t.string "pickup_location"
+    t.boolean "perishable"
     t.boolean "fragility"
+    t.datetime "expected_time"
+    t.string "delivery_location"
+    t.string "category_type"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone_number"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
