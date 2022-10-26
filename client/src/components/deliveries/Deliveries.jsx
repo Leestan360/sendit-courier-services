@@ -1,72 +1,111 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import DeliveryDetails from "./DeliveryDetails";
-// import { setCurrentUser } from "../../features/currentUser";
-// import messenger from './Messenger-pana.svg'
-// import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from "react-router-dom";
+import { GoLocation } from "react-icons/go";
+import { BsArrowRight } from "react-icons/bs";
+import { FaWeightHanging } from "react-icons/fa";
+import { AiOutlineCheckCircle } from "react-icons/ai";
+
+const posts = [
+        {
+            title: "Order Number: #87654",
+            subtitle: "Electronic",
+            content: "Narok",
+            place: "Kisumu",
+            weight: "88 kg"
+        },
+        {
+            title: "Order Number: #87655",
+            subtitle: "Electronic",
+            content: "Lodwar",
+            place: "Kitale",
+            weight: "33 kg"
+        },
+        {
+            title: "Order Number: #87656",
+            subtitle: "Electronic",
+            content: "Eldoret",
+            place: "Garisa",
+            weight: "70 kg"
+        },
+        {
+            title: "Order Number: #87657",
+            subtitle: "Electronic",
+            content: "Kakamega",
+            place: "Lamu",
+            weight: "300 kg"
+        },
+        {
+            title: "Order Number: #87658",
+            subtitle: "Electronic",
+            content: "Nairobi",
+            place: "Thika",
+            weight: "90 kg"
+        },
+        {
+            title: "Order Number: #87659",
+            subtitle: "Electronic",
+            content: "Nairobi",
+            place: "Kisumu",
+            weight: "27 kg"
+        },
+        {
+            title: "Order Number: #87660",
+            subtitle: "Electronic",
+            content: "Nakuru",
+            place: "Kisumu",
+            weight: "57 kg" 
+        },
+        {
+            title: "Order Number: #87661",
+            subtitle: "Electronic",
+            content: "Nairobi",
+            place: "Mombasa",
+            weight: "57 kg"
+        },
+    ];
+
+    
+
 
 function Deliveries() {
-  const [posts, setPosts] = useState([]);
-  // const [filteredPosts, setFilteredPosts] = useState([]);
-  const [ hasPosts, setHasPosts ] = useState(false);
-  // const user = JSON.parse(localStorage.getItem("user"))
-  const currentUser = useSelector((state) => ({ ...state.currentUser.value }));
-  // const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const { signupState } = useSelector((state) => ({ ...state.signup }));
-  const { loginState } = useSelector((state) => ({
-    ...state.login,
-  }));
-  const [user, setUser] = useState({});
-  // const dispatch = useDispatch();
-
-  useEffect(() => {
-    const getData = async () => {
-      // let userRequest = await fetch("http://localhost:3000/me");
-      // let userRequestData = await userRequest.json();
-      // await console.log(userRequestData);
-      // if(userRequest.ok){
-      //   await setUser(userRequestData);
-      //   await dispatch(setCurrentUser(userRequestData));
-      // }
-      // if(!!currentUser){
-      //   navigate("/")
-      // }
-      let request = await fetch("/parcels");
-      let data = await request.json();
-      // console.log(data);
-      if(request.ok){
-        setHasPosts(true);
-      }
-      // console.log(user.id);
-      const filter = await data.filter((parcel) => {
-        return parcel.user.id === currentUser.id;
-      });
-      await setPosts(filter); 
-      // await console.log(filter);
-    };
-    getData();
-  }, [user.id]);
-
+      const handleView = () => {
+         navigate("/viewdelivery");
+      };
   return (
-    <div className="grid gap-2 lg:grid-cols-3 bg-indigo-50 min-h-screen p-5 w-full ">
-      {posts.map((items, index) => (
-        <DeliveryDetails
-          category={items.category_type}
-          pickup={items.pickup_location}
-          place={items.delivery_location}
-          weight={items.weight}
-          id={items.id}
-          time={items.expected_time}
-          fragile={items.fragility}
-          perishable={items.perishable}
-        />
-      ))
-      // <img src={messenger} alt="" />
-      }
-    </div>
-  );
+    <div className="grid gap-2 lg:grid-cols-4 max-w-[1300px] w-[100%]">
+                {posts.map((items, key) => (
+                    <div className="w-full rounded-lg shadow-md lg:max-w-sm  bg-white" key={key}>
+                        <div className="p-4">
+                            <h4 className="text-xl font-semibold text-slate-800">
+                                
+                                {items.title}
+                            </h4>
+                            <h5 className='text-x font-roboto text-slate-600'>
+                              {items.subtitle}
+                            </h5> <hr /> <br /> <br />
+                            <p className="mb-2 leading-normal flex gap-6">
+                            <GoLocation className="text-blue-800" size={20}/>{items.content} <BsArrowRight className="text-blue-800" size={20}/> {items.place}
+                            </p>
+                            <p className="mb-2 leading-normal flex gap-6">
+                            <FaWeightHanging size={20}/> {items.weight}
+                            </p>
+                             <br /> <hr /> <br />
+                            <div className='flex justify-between w-full lg:max-w-sm'>
+                              <button onClick={handleView} className="px-4 py-2 text-sm text-blue-800 bg-white rounded-2xl shadow flex gap-2">
+                                <AiOutlineCheckCircle size={20} /> Delivered
+                            </button>
+                              <button onClick={handleView} className="px-4 py-2 text-sm text-blue-100 bg-blue-800 rounded-2xl shadow">
+                                View 
+                            </button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    ))}
+            </div>
+  )
 }
 
-export default Deliveries;
+export default Deliveries
