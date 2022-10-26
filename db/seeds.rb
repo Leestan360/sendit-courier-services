@@ -1,7 +1,26 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+Parcel.create([
+    {
+        weight: 3,
+        length: 6,
+        width: 8,
+        category_type: "electronic",
+        perishabile: true,
+        fragility: true
+    },
+    {
+        weight: 6,
+        length: 23,
+        width: 14,
+        category_type: "furniture",
+        perishabile: false,
+        fragility: false
+    },
+    {
+        weight: 145,
+        length: 34,
+        width: 20,
+        category_type: "automotive",
+        perishabile: false,
+        fragility: false
+    }
+])

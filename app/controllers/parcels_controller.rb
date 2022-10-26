@@ -30,6 +30,6 @@ class ParcelsController < ApplicationController
     end
 
     def parcel_params
-        params.permit(:weight, :category_type,  :perishabile, :length, :width, :fragility)
+        params.permit(:weight, :length, :width, :category_type, :perishabile, :fragility)
     end
 end
