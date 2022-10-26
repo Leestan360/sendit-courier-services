@@ -21,37 +21,6 @@ Parcel.create([
         delivery_location: "Nakuru",
         category_type: "clothing"
     }
-    # {
-    #     user_id: 3,
-    #     weight: 40,
-    #     pickup_location: "Nairobi",
-    #     perishable: false,
-    #     fragility: true,
-    #     expected_time: "",
-    #     delivery_location: "Ruiru",
-    #     category_type: "electronic"
-    # }
 ])
 
-User.create([
-  {
-    first_name: "Amos",
-    last_name: "Koech",
-    email: "amoskoech@gmail.com",
-    phone_number: "254712345678",
-    password: "12345678",
-    password_confirmation: "12345678"
-
-  }, 
-  {
-    first_name: "Victor",
-    last_name: "Mmullah",
-    email: "victormmullah@gmail.com",
-    phone_number: "254712345998",
-    password: "12345678",
-    password_confirmation: "12345678"
-
-  }
-])
-
-puts "Finished Seeding Data"
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
