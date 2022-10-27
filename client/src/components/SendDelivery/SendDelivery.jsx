@@ -69,9 +69,9 @@ const SendDelivery = () => {
                   className="font-jost bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2 outline-none "
                 >
                   <option value="null">-- null --</option>
-                  <option value="25">Electronics</option>
-                  <option value="50">Clothing</option>
-                  <option value="100">Paint</option>
+                  <option value="Electronics">Electronics</option>
+                  <option value="Clothing">Clothing</option>
+                  <option value="Paint">Paint</option>
                 </select>
               </div>
               <div className="flex flex-col  md:max-w-[320px] md:w-[100%] mx-2">
