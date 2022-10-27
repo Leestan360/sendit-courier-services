@@ -18,7 +18,6 @@ const Home = () => {
 
   return (
     <div>
-      <NavBar />
       <div className="flex">
         <div>{display ? <DashBoard /> : null}</div>
         <div className="flex flex-col w-[100%]">
