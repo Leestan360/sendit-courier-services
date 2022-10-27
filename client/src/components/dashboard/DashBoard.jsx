@@ -11,7 +11,7 @@ const DashBoard = () => {
 
   return (
     <div className="font-work bg-blue-900">
-      <div className="border-transparent w-[300px] xsm:w-[200px] relative bg-blue-900 shadow h-screen flex flex-col justify-between text-white">
+      <div className="border-transparent w-[300px] xsm:w-[200px] absolute bg-blue-900 shadow h-screen flex flex-col justify-between text-white">
         <div>
           <ul className="mt-6 flex flex-col ">
             <div

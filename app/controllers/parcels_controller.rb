@@ -1,10 +1,13 @@
 class ParcelsController < ApplicationController
+
+    # skip_before_action :authorize, only: [:index, :create, :show, :destroy, :update]
+
     def index
         render json: Parcel.all, status: :ok
     end
 
     def create
-        parcel = Parcel.create(parcel_params)
+        parcel = Parcel.create!(parcel_params)
         render json: parcel, status: :created
     end
 
@@ -30,6 +33,6 @@ class ParcelsController < ApplicationController
     end
 
     def parcel_params
-        params.permit(:weight, :length, :width, :category_type, :perishabile, :fragility)
+        params.permit(:user_id, :weight, :pickup_location, :perishable, :fragility, :expected_time, :delivery_location, :category_type)
     end
 end

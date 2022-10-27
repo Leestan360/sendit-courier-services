@@ -1,14 +1,26 @@
 import CardInfo from "../CardInfo/CardInfo";
+import { useNavigate } from "react-router-dom";
 import MpesaPayment from "../MpesaPayment/MpesaPayment";
 import { useState } from "react";
+import { setOrderList } from "../../features/orderList";
+import { useDispatch, useSelector } from "react-redux";
 
 const Payment = () => {
 
     const [ choosePayment, setChoosePayment ] = useState(false);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const option = useSelector((state) => state.orderList.value);
 
     const handleChoosePayment = ()=>{
         setChoosePayment(!choosePayment);
     }
+
+    const handleCancel = () => {
+      dispatch(setOrderList({}));
+      navigate("/location");
+    };
+  
 
   return (
     <div className="bg-gray-100 w-[100%] text-slate-900">
@@ -38,7 +50,7 @@ const Payment = () => {
           <CardInfo choose={choosePayment}/>
           <MpesaPayment choose={choosePayment}/>
           <div className="p-[20px] flex justify-end font-work mt-16">
-            <button className="border-2 px-4 py-2 mx-2 rounded-full">
+            <button onClick={handleCancel} className="border-2 px-4 py-2 mx-2 rounded-full">
               Cancel
             </button>
             <button className="border px-4 py-2 mx-2 rounded-full bg-blue-800 text-white">
