@@ -9,6 +9,6 @@ class Parcel < ApplicationRecord
     validates :expected_time, presence: true 
     validates :delivery_location, presence: true
     validates :category_type, presence: true
-    validates :user_id, presence: true, uniqueness: true
+    validates :user_id, presence: true
 
 end
