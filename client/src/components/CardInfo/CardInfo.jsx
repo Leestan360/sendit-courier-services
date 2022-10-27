@@ -26,19 +26,12 @@ const CardInfo = ({ choose }) => {
     // setOption({ ...option, [name]:value});
     console.log(option);
   };
-<<<<<<< HEAD
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch(setOrder(option));
-=======
   
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(setOrderList({ user_id:user.id, ...option}))
     console.log(option);
     dispatch(setOrder({ user_id:user.id, ...option}));
->>>>>>> 1df4792c3072858d30799865b0af8ad1690833ab
   };
 
   return (
