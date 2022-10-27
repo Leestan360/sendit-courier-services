@@ -14,17 +14,21 @@ const SendDelivery = () => {
   };
 
   const dispatch = useDispatch();
-  const { orderState, loading, error } = useSelector((state)=> ({...state.order}));
+  const { orderState, loading, error } = useSelector((state) => ({
+    ...state.order,
+  }));
 
-  const handleInput = (event)=>{
+  const handleInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    dispatch(setOrderList({...option, [name]:value}));
+    dispatch(setOrderList({ ...option, [name]: value }));
     // setOption({ ...option, [name]:value});
     console.log(option);
-  }
+  };
 
-  
+  const handleCancel = () => {
+    dispatch(setOrderList({}));
+  };
 
   return (
     <div className="bg-gray-100 w-[100%] text-slate-900">
@@ -33,65 +37,28 @@ const SendDelivery = () => {
       <div className="flex justify-around">
         <div className="bg-white mx-5 w-[100%] shadow-lg p-5 rounded-md">
           <div className="">
-            
             <h3 className="text-md font-bold font-work">Measurements</h3>
             <hr className="my-2 border" />
-            <div className="flex flex-col md:flex-row justify-around mt-[30px]">
-              {/* <div className="flex flex-col justify-center md:justify-around">
-                <label htmlFor="length" className="py-2 font-work">
-                  Choose Length
+            <div className="flex flex-col md:flex-row justify-start mt-[30px]">
+              <div className="">
+                <label htmlFor="weight" className="font-work">
+                  Add Weight
                 </label>
-                <select
-                  name="delivery_length"
-                  id=""
-                  onChange={handleInput}
-                  className="p-2 bg-white border border-blue-300 rounded outline-none font-open max-w-[220px]"
-                >
-                  <option value="null">-- null --</option>
-                  <option value="25">0metres to 10metres</option>
-                  <option value="50">10metres to 20metres</option>
-                  <option value="100">Above 30metres</option>
-                </select>
-              </div> */}
-              <div className="flex flex-col">
-                <label htmlFor="weight" className="py-2 font-work">
-                  Choose Weight
-                </label>
-                <select
+                <input
                   name="weight"
-                  id=""
                   onChange={handleInput}
-                  className="p-2 bg-white border border-blue-300 rounded outline-none font-open max-w-[220px]"
-                >
-                  <option value="null">--null--</option>
-                  <option value="25">0kg to 50kg</option>
-                  <option value="50">50 to 100kg</option>
-                  <option value="100">100kg to 200kg</option>
-                </select>
+                  type="number"
+                  placeholder="weight in kilograms"
+                  className="font-jost bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+                />
               </div>
-              {/* <div className="flex flex-col">
-                <label htmlFor="width" className="py-2 font-work">
-                  Choose Width
-                </label>
-                <select
-                  name="width"
-                  id=""
-                  onChange={handleInput}
-                  className="p-2 bg-white border border-blue-300 rounded outline-none font-open max-w-[220px]"
-                >
-                  <option value="null">-- null --</option>
-                  <option value="25">0metres to 10metres</option>
-                  <option value="50">10metres to 20metres</option>
-                  <option value="100">Above 30metres</option>
-                </select>
-              </div> */}
             </div>
           </div>
           <div className="mt-10">
             <h3 className="text-md font-bold font-work">Description</h3>
             <hr className="my-2 border" />
-            <div className="flex flex-col md:flex-row justify-around mt-[30px]">
-              <div className="flex flex-col">
+            <div className="flex flex-col md:flex-row justify-between mt-[30px]">
+              <div className="flex flex-col md:max-w-[320px] md:w-[100%] mx-2">
                 <label htmlFor="catergory" className="py-2 font-work">
                   Choose Catergory
                 </label>
@@ -99,7 +66,7 @@ const SendDelivery = () => {
                   name="category_type"
                   id=""
                   onChange={handleInput}
-                  className="p-2 bg-white border border-blue-300 rounded outline-none font-open max-w-[220px]"
+                  className="font-jost bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2 outline-none "
                 >
                   <option value="null">-- null --</option>
                   <option value="25">Electronics</option>
@@ -107,7 +74,7 @@ const SendDelivery = () => {
                   <option value="100">Paint</option>
                 </select>
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col  md:max-w-[320px] md:w-[100%] mx-2">
                 <label htmlFor="perishable" className="py-2 font-work">
                   Choose perishable
                 </label>
@@ -115,14 +82,14 @@ const SendDelivery = () => {
                   name="perishable"
                   id=""
                   onChange={handleInput}
-                  className="p-2 bg-white border border-blue-300 rounded outline-none font-open max-w-[220px]"
+                  className="font-jost bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2 outline-none "
                 >
                   <option value="null">-- null --</option>
                   <option value="true">True</option>
                   <option value="false">False</option>
                 </select>
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col  md:max-w-[320px] md:w-[100%] mx-2">
                 <label htmlFor="fragility" className="py-2 font-work">
                   Choose Fragility
                 </label>
@@ -130,7 +97,7 @@ const SendDelivery = () => {
                   name="fragility"
                   id=""
                   onChange={handleInput}
-                  className="p-2 bg-white border border-blue-300 rounded outline-none font-open max-w-[220px]"
+                  className="font-jost bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2 outline-none "
                 >
                   <option value="null">-- null --</option>
                   <option value="true">True</option>
@@ -140,8 +107,11 @@ const SendDelivery = () => {
             </div>
           </div>
           <div className="p-[20px] flex justify-end font-work mt-16">
-            <button className="border-2 px-4 py-2 mx-2 rounded-full">
-              Cancel
+            <button
+              onClick={handleCancel}
+              className="border-2 px-4 py-2 mx-2 rounded-full"
+            >
+              Clear
             </button>
             <button
               onClick={handleNavigate}
