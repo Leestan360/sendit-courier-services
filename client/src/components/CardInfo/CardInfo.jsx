@@ -19,12 +19,12 @@ const CardInfo = ({ choose }) => {
     },[signupState])
 
 
-  const handleInput = (event) => {
+  const handleCardInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    dispatch(setOrderList({ ...option, [name]: value }));
+    // dispatch(setOrderList({ ...option, [name]: value }));
     // setOption({ ...option, [name]:value});
-    console.log(option);
+    // console.log(option);
   };
   
   const handleSubmit = (event) => {
@@ -44,7 +44,7 @@ const CardInfo = ({ choose }) => {
           <input
             type="text"
             name="card_number"
-            onChange={handleInput}
+            onChange={handleCardInput}
             className="border rounded max-w-[400px] mx-2 my-1 p-2 outline-none border-slate-800"
           />
         </div>
@@ -55,7 +55,7 @@ const CardInfo = ({ choose }) => {
           <input
             type="text"
             name="card_name"
-            onChange={handleInput}
+            onChange={handleCardInput}
             className="border rounded max-w-[400px] mx-2 my-1 p-2 outline-none border-slate-800"
           />
         </div>
@@ -67,7 +67,7 @@ const CardInfo = ({ choose }) => {
             <input
               type="text"
               name="expiration_date"
-              onChange={handleInput}
+              onChange={handleCardInput}
               className="border rounded max-w-[190px] mx-2 my-1 p-2 outline-none border-slate-800"
             />
           </div>
@@ -78,7 +78,7 @@ const CardInfo = ({ choose }) => {
             <input
               type="text"
               name="security_code"
-              onChange={handleInput}
+              onChange={handleCardInput}
               className="border rounded max-w-[190px] mx-2 my-1 p-2 outline-none border-slate-800"
             />
           </div>
