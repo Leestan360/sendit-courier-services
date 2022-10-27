@@ -196,7 +196,7 @@ const Signup = () => {
                     />
                   </div>
                 </div>
-                <div
+                {/* <div
                   className="mt-3"
                   //   style={login ? { display: "none" } : { display: "block" }}
                 >
@@ -218,7 +218,7 @@ const Signup = () => {
                   >
                     your login information may be too short or wrong
                   </label>
-                </div>
+                </div> */}
                 <div className="mt-2">
                   <input
                     type="submit"

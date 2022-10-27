@@ -76,7 +76,7 @@ const Login = () => {
               onSubmit={handleSubmit}
               className="xxs:w-[250px] xsm:w-[400px] sm:w-[500px] md:w-[600px] lg:w-[300px] mt-5"
             >
-              <div>
+              {/* <div>
                 <label
                   htmlFor="firstname"
                   className="text-sm font-medium leading-none text-gray-800 "
@@ -111,7 +111,7 @@ const Login = () => {
                   placeholder="e.g: Doe "
                   onChange={handleInput}
                 />
-              </div>
+              </div> */}
               <div className="mt-3 w-full">
                 <label
                   htmlFor="email"
@@ -167,7 +167,7 @@ const Login = () => {
                     />
                   </div>
                 </div> */}
-              <div
+              {/* <div
                 className="mt-3"
                 //   style={login ? { display: "none" } : { display: "block" }}
               >
@@ -189,7 +189,7 @@ const Login = () => {
                 >
                   could not identify user, try again
                 </label>
-              </div>
+              </div> */}
               <div className="mt-2">
                 <input
                   type="submit"
