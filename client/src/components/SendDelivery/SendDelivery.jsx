@@ -108,8 +108,8 @@ const SendDelivery = () => {
                 </select>
               </div>
               <div className="flex flex-col">
-                <label htmlFor="perishability" className="py-2 font-work">
-                  Choose Perishability
+                <label htmlFor="perishable" className="py-2 font-work">
+                  Choose perishable
                 </label>
                 <select
                   name="perishable"

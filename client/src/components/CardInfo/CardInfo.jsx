@@ -1,10 +1,23 @@
 import { setOrderList } from "../../features/orderList";
 import { setOrder } from "../../features/order";
 import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 
 const CardInfo = ({ choose }) => {
+
+  const [ user, setUser ] = useState({});
   const dispatch = useDispatch();
   const option = useSelector((state) => state.orderList.value);
+  const { signupState, loading, error } = useSelector((state) => ({ ...state.signup }));
+
+
+    //fetches user data stored in redux state
+    useEffect(()=>{
+      console.log(signupState);
+      setUser(signupState)
+
+    },[signupState])
+
 
   const handleInput = (event) => {
     const name = event.target.name;
@@ -13,10 +26,19 @@ const CardInfo = ({ choose }) => {
     // setOption({ ...option, [name]:value});
     console.log(option);
   };
+<<<<<<< HEAD
 
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(setOrder(option));
+=======
+  
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(setOrderList({ user_id:user.id, ...option}))
+    console.log(option);
+    dispatch(setOrder({ user_id:user.id, ...option}));
+>>>>>>> 1df4792c3072858d30799865b0af8ad1690833ab
   };
 
   return (

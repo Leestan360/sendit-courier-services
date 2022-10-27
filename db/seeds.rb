@@ -1,28 +1,26 @@
-# puts "Seeding Data"
+puts "Seeding Data"
 
-# Parcel.create([
-#     {
-#         weight: 3,
-#         category_type: "electronic",
-#         perishabile: true,
-#         fragility: true
-#     },
-#     {
-#         weight: 6,
-#         length: 23,
-#         width: 14,
-#         category_type: "furniture",
-#         perishabile: false,
-#         fragility: false
-#     },
-#     {
-#         weight: 145,
-#         length: 34,
-#         width: 20,
-#         category_type: "automotive",
-#         perishabile: false,
-#         fragility: false
-#     }
-# ])
+Parcel.create([
+    {
+        user_id: 1,
+        weight: 5,
+        pickup_location: "Nairobi",
+        perishable: true,
+        fragility: true,
+        expected_time: "",
+        delivery_location: "Weatlands",
+        category_type: "electronic"
+    },
+    {
+        user_id: 2,
+        weight: 10,
+        pickup_location: "Nairobi",
+        perishable: true,
+        fragility: false,
+        expected_time: "",
+        delivery_location: "Nakuru",
+        category_type: "clothing"
+    }
+])
 
-# puts "Finished Seeding Data"
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

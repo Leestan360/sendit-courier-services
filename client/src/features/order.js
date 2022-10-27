@@ -10,26 +10,29 @@ export const setOrder = createAsyncThunk("order/setOrder", async (order) => {
           "content-type":"application/json",
         },
         body: JSON.stringify({
-          category_type: order.category_type,
-          delivery_location: order.delivery_location,
-          expected_time:order.expected_time,
-          fragility:order.fragility,
-          perishable:order.perishable,
-          pickup_location:order.pickup_location,
           weight:order.weight,
-          expiration_date:order.expiration_date,
-          card_name:order.card_name,
-          card_number:order.card_number,
-          security_code:order.security_code,
+          pickup_location:order.pickup_location,
+          perishable:order.perishable,
+          fragility:order.fragility,
+          expected_time:order.expected_time,
+          delivery_location:order.delivery_location,
+          category_type: order.category_type,
+          user_id: order.user_id,
+          // card_name:order.card_name,
+          // card_number:order.card_number,
+            // expiration_date:order.expiration_date,
+            // dropoff: order.dropoff,
+            // security_code:order.security_code,
+            // width:order.width,
         }),
       });
     let data = await request.json();
     console.log(request);
     if (request.ok) {
-       console.log(data, "yes");
+      //  console.log(data, "yes");
       return data;
     } else {
-      console.log(data, "no");
+      // console.log(data, "no");
       return data;
     }
   } catch (error) {

@@ -30,7 +30,7 @@ const Location = () => {
         <div className="bg-white mx-5 w-[100%] shadow-lg p-5 rounded-md">
           <div className="flex flex-col md:flex-row justify-around mt-[10px]">
             <div className="flex items-end font-open my-3">
-              <label htmlFor="pickup">Pickup Location</label>
+              <label htmlFor="pickup_location">Pickup Location</label>
               <input
                 type="text"
                 name="pickup_location"
@@ -39,7 +39,7 @@ const Location = () => {
               />
             </div>
             <div className="flex items-end font-open my-3">
-              <label htmlFor="delivery_location">Delivery Location</label>
+              <label htmlFor="delivery_location">Dropoff Location</label>
               <input
                 type="text"
                 name="delivery_location"
