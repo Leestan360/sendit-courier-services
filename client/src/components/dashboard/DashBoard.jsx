@@ -11,7 +11,7 @@ const DashBoard = () => {
 
   return (
     <div className="font-work bg-blue-900">
-      <div className="border-transparent w-[300px] xsm:w-[200px] relative bg-blue-900 shadow h-screen flex flex-col justify-between text-white">
+      <div className="border-transparent w-[300px] xsm:w-[200px] absolute bg-blue-900 shadow h-screen flex flex-col justify-between text-white">
         <div>
           <ul className="mt-6 flex flex-col ">
             <div
@@ -38,7 +38,7 @@ const DashBoard = () => {
               className="flex justify-start items-center py-3 pl-5  hover:text-white hover:bg-blue-800 m-2 hover:rounded-lg cursor-pointer "
               onClick={handleDisableNavbar}
             >
-              <Link to={"/delivered"} className="flex">
+              <Link to={"/mydeliveries"} className="flex">
                 <i class="bx bx-package bx-sm mx-2"></i>
                 <li className="flex cursor-pointer  text-base">
                   My Deliveries

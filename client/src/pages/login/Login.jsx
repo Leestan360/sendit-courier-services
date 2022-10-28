@@ -39,7 +39,7 @@ const Login = () => {
     useEffect(()=>{
       console.log(loginState);
       console.log(error);
-    }, [loginState])
+    },[loginState])
 
   return (
     <div className="bg-indigo-50 font-jost mt-[40px]">
@@ -167,7 +167,7 @@ const Login = () => {
                     />
                   </div>
                 </div> */}
-              <div
+              {/* <div
                 className="mt-3"
                 //   style={login ? { display: "none" } : { display: "block" }}
               >
@@ -189,7 +189,7 @@ const Login = () => {
                 >
                   could not identify user, try again
                 </label>
-              </div>
+              </div> */}
               <div className="mt-2">
                 <input
                   type="submit"

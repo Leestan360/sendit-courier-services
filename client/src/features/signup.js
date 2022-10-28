@@ -1,4 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { useNavigate } from "react-router-dom";
+
+// const navigate = useNavigate();
 
 // using redux to post user signup details to the database
 export const createPost = createAsyncThunk(
