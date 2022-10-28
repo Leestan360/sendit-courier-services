@@ -1,10 +1,25 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import { useSelector } from 'react-redux';
 
-function ViewDel ({items, itemId}) {
+function ViewDel ( { items, itemId } ) {
+  console.log( items );
+  
+  const id = useSelector( ( state ) => state.parcelID.value );
+
+  const [parcel, setParcel] = useState("")
   let num1 = Date.now();
-  console.log(items);
-  console.log(itemId);
-  console.log(num1);
+  
+  useEffect( () => {
+    const getData = async () => {
+      let request = await fetch( `/parcels/${id}` );
+      let data = await request.json();
+      console.log( data );
+      setParcel( data );
+
+    };
+    getData();
+  }, [] )
+
   return (
     <div className="bg-gray-100 w-[100%] text-slate-900">
       <h2 className="font-open text-lg font-bold mx-5 my-2">View Delivery</h2>
