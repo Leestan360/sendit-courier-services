@@ -85,7 +85,7 @@ function Deliveries() {
 
   useEffect(()=>{
     const getData = async ()=>{
-      let request = await fetch("/parcels")
+      let request = await fetch("http://localhost:3000/parcels")
       let data = await request.json();
       console.log(data);
       setPosts(data);
