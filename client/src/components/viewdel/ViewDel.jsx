@@ -1,6 +1,10 @@
 import React from "react";
 
-function ViewDel() {
+function ViewDel ({items, itemId}) {
+  let num1 = Date.now();
+  console.log(items);
+  console.log(itemId);
+  console.log(num1);
   return (
     <div className="bg-gray-100 w-[100%] text-slate-900">
       <h2 className="font-open text-lg font-bold mx-5 my-2">View Delivery</h2>
@@ -12,7 +16,7 @@ function ViewDel() {
               <i class="bx bx-list-ul bx-md"></i>
             </div>
             <div>
-              <h3 className="text-2xl font-jost">ID: #987654</h3>
+              <h3 className="text-2xl font-jost">ID: {num1}</h3>
               <p className="w-[100px] rounded-full bg-indigo-50 text-blue-300 text-center">
                 in transit
               </p>

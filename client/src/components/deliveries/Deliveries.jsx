@@ -5,6 +5,7 @@ import { GoLocation } from "react-icons/go";
 import { BsArrowRight } from "react-icons/bs";
 import { FaWeightHanging } from "react-icons/fa";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import ViewDel from "../viewdel/ViewDel";
 
 // const posts = [
 //         {
@@ -134,6 +135,7 @@ function Deliveries() {
               </button>
             </div>
           </div>
+          <p className="hideme">{ <ViewDel items={ items } itemId= {items.id} /> }</p>
         </div>
       ))}
     </div>
