@@ -7,7 +7,7 @@ import DeliveryLocation from "../pages/deliveryLocation/DeliveryLocation";
 import DeliveryPayment from "../pages/deliveryPayment/DeliveryPayment";
 import Login from "../pages/login/Login";
 import Signup from "../pages/signup/Signup";
-
+import Logout from "../features/logout"
 function App() {
   return (
     <div className="App">
@@ -19,6 +19,7 @@ function App() {
           <Route path="/payment" element={<DeliveryPayment />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/Logout" element={<Logout />} />
         </Routes>
       </Router>
     </div>
