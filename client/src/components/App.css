@@ -9,3 +9,7 @@
 #scroll::-webkit-scrollbar {
     display: none;
   }
+
+  .hideme{
+    display:none;
+  }
