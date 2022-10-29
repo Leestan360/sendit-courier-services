@@ -18,7 +18,7 @@ function ViewDel ( ) {
 
     };
     getData();
-  }, [] )
+  }, [id] )
 
   return (
     <div className="bg-gray-100 w-[100%] text-slate-900">
@@ -70,9 +70,9 @@ function ViewDel ( ) {
                 <i class="fa-solid fa-scale-unbalanced-flip fa-xl"></i>
                 </div>
                 <div>
-                  <h3 className="text-base font-work font-extrabold">Weight</h3>
+                  <h3 className="text-base font-work font-extrabold">Fragility</h3>
                   <p className="w-[200px] rounded-full bg-indigo-50 text-blue-800 ">
-                    <span className="text-3xl"> 53 </span>kilograms
+                    <span className="text-3xl"> {parcel.fragility} </span>
                   </p>
                 </div>
               </div>  
@@ -85,7 +85,7 @@ function ViewDel ( ) {
                 <div>
                   <h3 className="text-base font-work font-extrabold">Pickup Location</h3>
                   <p className="w-[200px] rounded-full bg-indigo-50 text-blue-800 ">
-                    <span className="text-3xl">  </span>ngong rd
+                    <span className="text-3xl"> { parcel.pickup_location } </span>
                   </p>
                 </div>
               </div>
@@ -96,7 +96,7 @@ function ViewDel ( ) {
                 <div>
                   <h3 className="text-base font-work font-extrabold">Delivery Location</h3>
                   <p className="w-[200px] rounded-full bg-indigo-50 text-blue-800 ">
-                    <span className="text-3xl">  </span>kasarani
+                    <span className="text-3xl"> { parcel.delivery_location } </span>
                   </p>
                 </div>
               </div>
@@ -107,7 +107,7 @@ function ViewDel ( ) {
                 <div>
                   <h3 className="text-base font-work font-extrabold">Expected Time</h3>
                   <p className="w-[200px] rounded-full bg-indigo-50 text-blue-800 ">
-                    <span className="text-3xl">  </span>2hrs
+                    <span className="text-3xl"> {parcel.expected_time} </span>`coming soon`
                   </p>
                 </div>
               </div>  

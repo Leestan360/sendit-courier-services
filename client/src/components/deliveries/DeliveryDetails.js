@@ -4,7 +4,7 @@ import { BsArrowRight } from "react-icons/bs";
 import { FaWeightHanging } from "react-icons/fa";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setParcelId } from "../../features/parcelID";
 
 function DeliveryDetails({ category, key, pickup, place, weight, id }) {
