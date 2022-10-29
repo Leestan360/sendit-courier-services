@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // using redux to order order by retrieving their information from the database
 export const setOrder = createAsyncThunk("order/setOrder", async (order) => {
   try {
-    let request = await fetch("/parcels", {
+    let request = await fetch("http://localhost:3000/parcels", {
         method: "POST",
         headers: {
           Accept: "application/json",

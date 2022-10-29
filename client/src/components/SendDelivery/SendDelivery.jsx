@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-// import { useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setOrder } from "../../features/order";
 import { setOrderList } from "../../features/orderList";
@@ -8,6 +8,7 @@ const SendDelivery = () => {
   const navigate = useNavigate();
   // const [ option, setOption ] = useState({})
   const option = useSelector((state) => state.orderList.value);
+  const { signupState } = useSelector((state) => ({ ...state.signup }));
 
   const handleNavigate = () => {
     navigate("/location");
@@ -29,6 +30,16 @@ const SendDelivery = () => {
   const handleCancel = () => {
     dispatch(setOrderList({}));
   };
+
+    //fetches user data stored in redux state
+    useEffect(()=>{
+      console.log(signupState);
+      console.log(!!signupState.id);
+      if(!!signupState.id === false){
+        navigate("/signup")
+      }
+      console.log(error);
+    },[signupState])
 
   return (
     <div className="bg-gray-100 w-[100%] text-slate-900">

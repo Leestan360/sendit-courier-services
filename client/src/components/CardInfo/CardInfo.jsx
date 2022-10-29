@@ -29,7 +29,7 @@ const CardInfo = ({ choose }) => {
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(setOrderList({ user_id:user.id, ...option}))
+    dispatch(setOrderList({ user_id:user.id, ...option, expected_time:24}))
     console.log(option);
     dispatch(setOrder({ user_id:user.id, ...option}));
   };
