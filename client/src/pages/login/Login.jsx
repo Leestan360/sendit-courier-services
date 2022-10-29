@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser, formError } from "../../features/login";
+import login from "./login.svg";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ const Login = () => {
   const { loginState, loading, error } = useSelector((state) => ({
     ...state.login,
   }));
+  console.log(formError);
 
   //navigate to signup
   const handleNavigateSignup = () => {
@@ -35,27 +37,23 @@ const Login = () => {
     // console.log(loading);
   };
 
-  //fetches user data stored in redux state
-  useEffect(() => {
-    if (!!loginState.id) {
-      console.log(loginState.id);
-      console.log(loginState);
-      navigate("/delivery");
-    }
-    console.log(error);
-  }, [loginState]);
+  // //fetches user data stored in redux state
+  // useEffect(() => {
+  //   if (!!loginState.id) {
+  //     console.log(loginState.id);
+  //     console.log(loginState);
+  //     navigate("/delivery");
+  //   }
+  //   console.log(error);
+  // }, [loginState]);
 
   return (
     <div className="bg-indigo-50 font-jost mt-[40px]">
       <div className="xl:px-20 md:px-10 sm:px-6 px-4 md:py-12 py-9 2xl:mx-auto 2xl:container md:flex items-center justify-center">
         <div className=" md:hidden sm:mb-8 mb-6"></div>
         <div className="bg-white shadow-lg rounded  md:w-[100%] md:max-w-[800px] lg:w-[100%] lg:max-w-[1000px] flex flex-col lg:flex-row">
-          <div className="md:max-w-[800px] md:w-[100%] lg:w-[500px]">
-            <img
-              // src={process.env.PUBLIC_URL + "/big_house.jpg"}
-              alt=""
-              className="lg:w-[100%] lg:h-[100%] object-cover"
-            />
+          <div className="md:max-w-[800px] md:w-[100%] lg:w-[500px] flex justify-around items-center p-5">
+            <img src={login} alt="" className="object-cover" />
           </div>
           <div className="lg:w-[500px] flex flex-col items-center lg:px-10 sm:px-6 sm:py-10 xxs:py-4">
             <p
