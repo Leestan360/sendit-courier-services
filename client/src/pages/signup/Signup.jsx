@@ -33,7 +33,7 @@ const Signup = () => {
 
   //fetches user data stored in redux state
   useEffect(() => {
-    console.log(signupState);
+    // console.log(signupState);
     console.log(!!signupState.id);
     if (!!signupState.id) {
       navigate("/delivery");

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../../features/login";
+import { loginUser, formError } from "../../features/login";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -35,11 +35,15 @@ const Login = () => {
     // console.log(loading);
   };
 
-    //fetches user data stored in redux state
-    useEffect(()=>{
+  //fetches user data stored in redux state
+  useEffect(() => {
+    if (!!loginState.id) {
+      console.log(loginState.id);
       console.log(loginState);
-      console.log(error);
-    },[loginState])
+      navigate("/delivery");
+    }
+    console.log(error);
+  }, [loginState]);
 
   return (
     <div className="bg-indigo-50 font-jost mt-[40px]">
@@ -76,42 +80,6 @@ const Login = () => {
               onSubmit={handleSubmit}
               className="xxs:w-[250px] xsm:w-[400px] sm:w-[500px] md:w-[600px] lg:w-[300px] mt-5"
             >
-              {/* <div>
-                <label
-                  htmlFor="firstname"
-                  className="text-sm font-medium leading-none text-gray-800 "
-                >
-                  {" "}
-                  First Name{" "}
-                </label>
-                <input
-                  id="firstname"
-                  aria-labelledby="firstname"
-                  name="first_name"
-                  type="text"
-                  className="bg-gray-100 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
-                  placeholder="e.g: John"
-                  onChange={handleInput}
-                />
-              </div>
-              <div className="mt-3 w-full">
-                <label
-                  htmlFor="lastname"
-                  className="text-sm font-medium leading-none text-gray-800 "
-                >
-                  {" "}
-                  Last Name{" "}
-                </label>
-                <input
-                  id="lastname"
-                  aria-labelledby="lastname"
-                  name="last_name"
-                  type="text"
-                  className="bg-gray-100 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
-                  placeholder="e.g: Doe "
-                  onChange={handleInput}
-                />
-              </div> */}
               <div className="mt-3 w-full">
                 <label
                   htmlFor="email"
@@ -138,58 +106,17 @@ const Login = () => {
                   {" "}
                   Password{" "}
                 </label>
-                <div className="relative flex items-center justify-center">
-                  <input
-                    id="myInput"
-                    name="password"
-                    //   type={showpass ? "text" : "password"}
-                    type="password"
-                    className="bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
-                  />
-                </div>
+                <input
+                  id="myInput"
+                  name="password"
+                  //   type={showpass ? "text" : "password"}
+                  type="password"
+                  className="bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+                />
+                <p className="text-red-500 text-xs m-3">
+                  {formError.errors[0]}
+                </p>
               </div>
-              {/* <div className="mt-3 w-full">
-                  <label
-                    htmlFor="myInput"
-                    className="text-sm font-medium leading-none text-gray-800 "
-                  >
-                    {" "}
-                    Password Confirmation{" "}
-                  </label>
-                  <div className="relative flex items-center justify-center">
-                    <input
-                      id="password_confirmation"
-                      name="password_confirmation"
-                      // type={showpass ? "text" : "password"}
-                      type="password"
-                      className="bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
-                      onChange={handleInput}
-                    />
-                  </div>
-                </div> */}
-              {/* <div
-                className="mt-3"
-                //   style={login ? { display: "none" } : { display: "block" }}
-              >
-                <label
-                  htmlFor="myInput"
-                  className="text-sm font-medium leading-none text-red-700 "
-                >
-                  Login if you have an account
-                </label>
-              </div>
-              <div
-                className="mt-8"
-                //   style={login ? { display: "block" } : { display: "none" }}
-              >
-                <label
-                  htmlFor="myInput"
-                  className="text-sm font-medium leading-none text-red-700 p-2"
-                  // style={showError?{display:"block"}:{display:"none"}}
-                >
-                  could not identify user, try again
-                </label>
-              </div> */}
               <div className="mt-2">
                 <input
                   type="submit"
