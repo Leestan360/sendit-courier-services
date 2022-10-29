@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { useNavigate } from "react-router-dom";
 
 // const navigate = useNavigate();
+export let formError = {errors:["","","","","","","","","","","","","","","",]};
 
 // using redux to post user signup details to the database
 export const createPost = createAsyncThunk(
@@ -27,12 +28,18 @@ export const createPost = createAsyncThunk(
       console.log(request);
       if (request.ok) {
         //  console.log(data, "yes");
-         return data;
+        let userInfo = {};
+        userInfo = data;
+        console.log(userInfo);
+        return userInfo;
       } else {
         // console.log(data, "no");
-        return data
+        formError = data;
+        console.log(formError);
+        return formError;
       }
-    } catch (error) {
+    } 
+    catch (error) {
       console.log(error);
     }
   }

@@ -1,22 +1,23 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createPost } from "../../features/signup";
+import { createPost, formError } from "../../features/signup";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-
   const [user, setUser] = useState({});
-  const [ data, setData ] = useState();
+  const [data, setData] = useState();
   const dispatch = useDispatch();
-  const { signupState, loading, error } = useSelector((state) => ({ ...state.signup }));
+  const { signupState, loading } = useSelector((state) => ({
+    ...state.signup,
+  }));
   const navigate = useNavigate();
 
   //navigates user to loginpage
-  const handleNavigateLogin = () =>{
-    navigate("/login")
-  }
+  const handleNavigateLogin = () => {
+    navigate("/login");
+  };
 
-  //handles inputs from signup form 
+  //handles inputs from signup form
   const handleInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -28,26 +29,18 @@ const Signup = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(createPost(user));
-    // setData(signupState);
-    // console.log(signupState);
-    // console.log(data);
-    // console.log(loading);
   };
 
   //fetches user data stored in redux state
-  useEffect(()=>{
+  useEffect(() => {
     console.log(signupState);
     console.log(!!signupState.id);
-    if(!!signupState.id){
-      navigate("/delivery")
+    if (!!signupState.id) {
+      navigate("/delivery");
     }
-    console.log(error);
-  },[signupState])
+  }, [signupState]);
 
-  // console.log(signupState);
-  // console.log(loading);
-  // console.log(error);
-  
+
   return (
     <div>
       {/* <Navbar /> */}
@@ -75,7 +68,7 @@ const Signup = () => {
               >
                 Already have account?
                 <p
-                    onClick={handleNavigateLogin}
+                  onClick={handleNavigateLogin}
                   className="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none text-gray-800 cursor-pointer ml-2"
                 >
                   Login here
@@ -147,16 +140,14 @@ const Signup = () => {
                     {" "}
                     Phone Number{" "}
                   </label>
-                  <div className="relative flex items-center justify-center">
-                    <input
-                      id="number"
-                      name="phone_number"
-                      type="number"
-                      placeholder="e.g: 0785238923"
-                      className="bg-gray-100 border rounded text-xs font-medium leading-none placeholder-gray-400 text-gray-800 py-3 w-full pl-3 mt-2"
-                      onChange={handleInput}
-                    />
-                  </div>
+                  <input
+                    id="number"
+                    name="phone_number"
+                    type="number"
+                    placeholder="e.g: 0785238923"
+                    className="bg-gray-100 border rounded text-xs font-medium leading-none placeholder-gray-400 text-gray-800 py-3 w-full pl-3 mt-2"
+                    onChange={handleInput}
+                  />
                 </div>
                 <div className="mt-3 w-full">
                   <label
@@ -166,16 +157,14 @@ const Signup = () => {
                     {" "}
                     Password{" "}
                   </label>
-                  <div className="relative flex items-center justify-center">
-                    <input
-                      id="myInput"
-                      name="password"
-                      // type={showpass ? "text" : "password"}
-                      type="password"
-                      className="bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
-                      onChange={handleInput}
-                    />
-                  </div>
+                  <input
+                    id="myInput"
+                    name="password"
+                    // type={showpass ? "text" : "password"}
+                    type="password"
+                    className="bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+                    onChange={handleInput}
+                  />
                 </div>
                 <div className="mt-3 w-full">
                   <label
@@ -185,40 +174,19 @@ const Signup = () => {
                     {" "}
                     Password Confirmation{" "}
                   </label>
-                  <div className="relative flex items-center justify-center">
-                    <input
-                      id="password_confirmation"
-                      name="password_confirmation"
-                      // type={showpass ? "text" : "password"}
-                      type="password"
-                      className="bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
-                      onChange={handleInput}
-                    />
-                  </div>
+
+                  <input
+                    id="password_confirmation"
+                    name="password_confirmation"
+                    // type={showpass ? "text" : "password"}
+                    type="password"
+                    className="bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+                    onChange={handleInput}
+                  />
+                  <p className="text-red-500 text-xs m-3">
+                    {formError.errors[0]}
+                  </p>
                 </div>
-                {/* <div
-                  className="mt-3"
-                  //   style={login ? { display: "none" } : { display: "block" }}
-                >
-                  <label
-                    htmlFor="myInput"
-                    className="text-sm font-medium leading-none text-red-700 "
-                  >
-                    Please Sign Up if you don't have an account
-                  </label>
-                </div>
-                <div
-                  className="mt-8"
-                  //   style={login ? { display: "block" } : { display: "none" }}
-                >
-                  <label
-                    htmlFor="myInput"
-                    className="text-sm font-medium leading-none text-red-700 p-2"
-                    // style={showError?{display:"block"}:{display:"none"}}
-                  >
-                    your login information may be too short or wrong
-                  </label>
-                </div> */}
                 <div className="mt-2">
                   <input
                     type="submit"

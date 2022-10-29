@@ -96,11 +96,12 @@ function Deliveries() {
 
 
   return (
-    <div className="grid gap-2 lg:grid-cols-4 max-w-[1300px] w-[100%]">
+    <div className="grid gap-2 lg:grid-cols-4 max-w-[1300px] w-[100%]" style={{padding: "20px 150px 450px 40px", backgroundColor: "#E5DDD1"}}>
       {posts.map((items, key) => (
         <div
           className="w-full rounded-lg shadow-md lg:max-w-sm  bg-white"
           key={key}
+          style={{padding: "3px 4px 2px 10px", backgroundColor: "grey"}}
         >
           <div className="p-4">
             <h4 className="text-xl font-semibold text-slate-800">
@@ -111,9 +112,9 @@ function Deliveries() {
             </h5>{" "}
             <hr /> <br /> <br />
             <p className="mb-2 leading-normal flex gap-6">
-              <GoLocation className="text-blue-800" size={20} />
+              <GoLocation className="text-green-800" size={20} style={{backgroundColor: ""}}/>
               {items.pickup_location}{" "}
-              <BsArrowRight className="text-blue-800" size={20} /> {items.place}
+              <BsArrowRight className="text-green-800" size={20} /> {items.place}
             </p>
             <p className="mb-2 leading-normal flex gap-6">
               <FaWeightHanging size={20} /> {items.weight}
@@ -124,7 +125,7 @@ function Deliveries() {
                 onClick={handleView}
                 className="px-4 py-2 text-sm text-blue-800 bg-white rounded-2xl shadow flex gap-2"
               >
-                <AiOutlineCheckCircle size={20} /> Delivered
+                <AiOutlineCheckCircle size={20} style={{background: "#C6D8CF"}} /> Delivered
               </button>
               <button
                 onClick={handleView}
