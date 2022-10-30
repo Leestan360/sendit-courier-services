@@ -11,11 +11,12 @@ function Form ( { id, parcel } ) {
         e.preventDefault();
         setIsLoading( true );
         axios.patch( url, {
-            name: formData.name
+            delivery_location: formData.delivery_location
         } )
+            .then( ( res ) => res.json() )
             .then( res => {
                 setIsLoading( false );
-                // console.log( res.formData );
+                setFormData(res)
             } );
     }
     function handleChange ( e ) {
@@ -27,7 +28,7 @@ function Form ( { id, parcel } ) {
 
             <div>
                 <div>
-                    
+
                     <form onSubmit={ submit }>
                         <form>
                             <label htmlFor="name">Delivery Location</label><br />
@@ -39,7 +40,7 @@ function Form ( { id, parcel } ) {
                                 id="delivery_location"
                                 onChange={ handleChange } />
                         </form><br />
-                        
+
                         <form>
                             <button type="submit">
                                 { isLoading ? "Loading..." : "Submit Item" }
