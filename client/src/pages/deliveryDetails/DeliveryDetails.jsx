@@ -1,10 +1,21 @@
 import DashBoard from "../../components/dashboard/DashBoard";
 import NavBar from "../../components/navbar/NavBar";
-import { useSelector } from "react-redux";
 import SendDelivery from "../../components/SendDelivery/SendDelivery";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import userId, { setUserId } from "../../features/userId";
 
-const DeliveryDetails = () => {
-  const display = useSelector((state) => state.toggle.value);
+
+const DeliveryDetails = ( {login } ) => {
+  const display = useSelector( ( state ) => state.toggle.value );
+  const dispatch = useDispatch();
+
+  
+  useEffect( () => {
+    fetch( "/me" )
+      .then( ( r ) => r.json() )
+      .then( ( user ) => dispatch( setUserId(user) ) );
+  }, [ login ] );
 
   return (
     <div>

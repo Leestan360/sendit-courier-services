@@ -12,26 +12,20 @@ import Login from "../pages/login/Login";
 import Signup from "../pages/signup/Signup";
 
 function App () {
-  const [ user, setUser ] = useState(null)
-  const [login, setLogin] = useState(null)
-  console.log(user);
-  
-  function getMe (user) {
-    setUser(user)
-  }
+  const [login, setLogin] = useState({})  
 
   function onLogin(user) {
-    setLogin(login)
+    setLogin(user)
   }
   return (
     <div className="App">
       <Router>
         <Routes>
           <Route path="/" element={<Home  />} />
-          <Route path="/delivery" element={<DeliveryDetails />} />
+          <Route path="/delivery" element={ <DeliveryDetails login={ login } />} />
           <Route path="/location" element={<DeliveryLocation />} />
           <Route path="/payment" element={<DeliveryPayment />} />
-          <Route path="/mydeliveries" element={ <MyDeliveries getMe={ getMe } login={ login } />} />
+          <Route path="/mydeliveries" element={ <MyDeliveries />} />
           <Route path="/viewdelivery" element={<ViewDelivery />} />
           <Route path="/login" element={<Login onLogin={onLogin} />} />
           <Route path="/signup" element={<Signup />} />

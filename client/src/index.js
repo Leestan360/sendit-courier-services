@@ -9,6 +9,7 @@ import signupReducer from './features/signup';
 import loginReducer from  './features/login';
 import orderListReducer from './features/orderList';
 import parcelIDReducer from "./features/parcelID";
+import userIdReducer from "./features/userId";
 
 const store = configureStore({
   reducer: {
@@ -17,6 +18,7 @@ const store = configureStore({
     login:loginReducer,
     orderList: orderListReducer,
     parcelID: parcelIDReducer,
+    userId: userIdReducer
   },
 });
 

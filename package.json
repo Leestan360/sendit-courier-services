@@ -11,6 +11,7 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
+    "google-map-react": "^2.2.0",
     "react-icons": "^4.4.0"
   }
 }
