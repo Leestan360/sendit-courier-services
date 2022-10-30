@@ -1,6 +1,6 @@
 class ParcelsController < ApplicationController
 
-    # skip_before_action :authorize, only: [:index, :create, :show, :destroy, :update]
+    skip_before_action :authorize, only: [:index, :create, :show, :destroy, :update]
 
     def index
         render json: Parcel.all, status: :ok
