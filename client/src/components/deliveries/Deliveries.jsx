@@ -60,7 +60,7 @@ import DeliveryDetails from "./DeliveryDetails";
 //         },
 //     ];
 
-function Deliveries() {
+function Deliveries ( { getMe, login } ) {
   const [posts, setPosts] = useState([]);
 
  

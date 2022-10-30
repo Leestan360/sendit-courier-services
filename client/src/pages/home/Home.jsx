@@ -11,6 +11,8 @@ const Home = () => {
 
   const { signupState, loading, error } = useSelector((state) => ({ ...state.signup }));
 
+  
+
   // console.log(signupState);
   // console.log(loading);
   // console.log(error);

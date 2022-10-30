@@ -17,11 +17,11 @@ export const setOrder = createAsyncThunk("order/setOrder", async (order) => {
           perishable:order.perishable,
           pickup_location:order.pickup_location,
           weight:order.weight,
-          user_id:order.user_id,
           expiration_date:order.expiration_date,
           card_name:order.card_name,
           card_number:order.card_number,
-            security_code:order.security_code,
+          security_code: order.security_code,
+            user_id: order.user_id,
         }),
       });
     let data = await request.json();

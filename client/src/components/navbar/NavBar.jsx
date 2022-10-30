@@ -1,48 +1,18 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { toggleNavbar } from "../../features/toggle";
-import { loginUser, formError, userData } from "../../features/login";
-// import { toggle } from "../../features/toggle";
 
 const NavBar = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const toggleState = useSelector((state) => state.toggle.value);
-  const { signupState } = useSelector((state) => ({ ...state.signup }));
-  const { loginState } = useSelector((state) => ({
-    ...state.login,
-  }));
-  const [user, setUser] = useState({});
-  
+    const dispatch = useDispatch()
 
-  const handleToggle = () => {
-    dispatch(toggleNavbar(!toggleState));
-  };
+    const handleToggle = ()=>{
+        dispatch(toggleNavbar(true))
+    }
 
-  // //fetches user data stored in redux state
-  // useEffect(() => {
-  //   console.log(signupState);
-  //   console.log(!!signupState.id);
-  //   if (signupState.id) {
-
-  //   }
-  // }, [signupState]);
-
-  useEffect(() => {
-    console.log(JSON.parse(localStorage.getItem("user")));
-    setUser(JSON.parse(localStorage.getItem("user")));
-    console.log(user);
-  }, [signupState, loginState]);
 
   return (
     <div className="flex justify-between items-center text-slate-800 shadow-lg p-2">
       <div className="flex items-center">
-        <i
-          class="bx bx-menu bx-md mx-2"
-          data-testid="menu-icon"
-          onClick={handleToggle}
-        ></i>
+        <i class="bx bx-menu bx-md mx-2" data-testid="menu-icon" onClick={handleToggle} ></i>
         <h1 className="font-open text-2xl">Send IT</h1>
       </div>
       <div className="flex items-center">
@@ -51,7 +21,7 @@ const NavBar = () => {
           alt=""
           className="max-w-[40px] rounded-full"
         />
-        <h3 className="hidden md:block font-open mx-5">Welcome {user.first_name} {user.last_name}</h3>
+        <h3 className="hidden md:block font-open mx-5">Jane Mwangi</h3>
       </div>
     </div>
   );

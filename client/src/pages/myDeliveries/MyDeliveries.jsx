@@ -4,7 +4,10 @@ import { useSelector } from "react-redux";
 import Deliveries from "../../components/deliveries/Deliveries";
 
 
-const MyDeliveries = () => {
+const MyDeliveries = (  ) => {
+
+  
+
     const display = useSelector((state) => state.toggle.value);
 
     return (

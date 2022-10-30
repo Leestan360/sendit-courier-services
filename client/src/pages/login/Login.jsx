@@ -1,57 +1,58 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { loginUser, formError, userData } from "../../features/login";
+import { useState, useEffect} from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { loginUser, formError } from "../../features/login";
 import login from "./login.svg";
+import LoginForm from "./LoginForm";
 
-const Login = () => {
+const Login = ({onLogin}) => {
   const navigate = useNavigate();
-  const [user, setUser] = useState({});
-  const [data, setData] = useState();
-  const dispatch = useDispatch();
-  const { loginState, loading, error } = useSelector((state) => ({
-    ...state.login,
-  }));
-  console.log(formError);
+  const [ showLogin, setShowLogin ] = useState( true );
+  
+
+
+
+
+  // const [user, setUser] = useState({});
+  // const [data, setData] = useState();
+  // const dispatch = useDispatch();
+  // const { loginState, loading, error } = useSelector((state) => ({
+  //   ...state.login,
+  // }));
+  // console.log(formError);
 
   //navigate to signup
   const handleNavigateSignup = () => {
     navigate("/signup");
   };
 
-  //handles inputs from signup form
-  const handleInput = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setUser({ ...user, [name]: value.toLowerCase() });
-    console.log(user);
-  };
+  // //handles inputs from signup form
+  // const handleInput = (event) => {
+  //   const name = event.target.name;
+  //   const value = event.target.value;
+  //   setUser({ ...user, [name]: value.toLowerCase() });
+  //   // console.log(user);
+  // };
 
   //submit userdata to database
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(user);
-    dispatch(loginUser(user));
-    console.log(userData);
-    // if(!!userData){
-    //   navigate("/delivery");
-    // }
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+    // dispatch(loginUser(user));
     // setData(loginState);
     // console.log(loginState);
     // console.log(data);
     // console.log(loading);
-  };
+  // };
 
-  //fetches user data stored in redux state
-  useEffect(() => {
-    if (!!loginState.id) {
-      console.log(loginState.id);
-      console.log(loginState);
-      navigate("/delivery");
-    }
-    console.log(error);
-  }, [userData]);
-
+  // //fetches user data stored in redux state
+  // useEffect(() => {
+  //   if (!!loginState.id) {
+  //     console.log(loginState.id);
+  //     console.log(loginState);
+  //     navigate("/delivery");
+  //   }
+  //   console.log(error);
+  // }, [loginState]);
 
   return (
     <div className="bg-indigo-50 font-jost mt-[40px]">
@@ -80,56 +81,30 @@ const Login = () => {
                 Signup here
               </h3>
             </p>
-            <form
-              onSubmit={handleSubmit}
-              className="xxs:w-[250px] xsm:w-[400px] sm:w-[500px] md:w-[600px] lg:w-[300px] mt-5"
-            >
-              <div className="mt-3 w-full">
-                <label
-                  htmlFor="email"
-                  className="text-sm font-medium leading-none text-gray-800 "
-                >
-                  {" "}
-                  Email{" "}
-                </label>
-                <input
-                  id="email"
-                  aria-labelledby="email"
-                  name="email"
-                  type="email"
-                  className="bg-gray-100 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
-                  placeholder="e.g: john@gmail.com "
-                  onChange={handleInput}
-                />
-              </div>
-              <div className="mt-3 w-full">
-                <label
-                  htmlFor="myInput"
-                  className="text-sm font-medium leading-none text-gray-800 "
-                >
-                  {" "}
-                  Password{" "}
-                </label>
-                <input
-                  id="myInput"
-                  name="password"
-                  //   type={showpass ? "text" : "password"}
-                  type="password"
-                  onChange={handleInput}
-                  className="bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
-                />
-                <p className="text-red-500 text-xs m-3">
-                  {formError.errors[0]}
-                </p>
-              </div>
-              <div className="mt-2">
-                <input
-                  type="submit"
-                  className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-blue-500 border rounded hover:bg-blue-600 py-4 w-full"
-                  value="Login"
-                />
-              </div>
-            </form>
+            <>
+              { showLogin ? (
+
+                <>
+                  <LoginForm onLogin={ onLogin } />
+                  <p>
+                    Don't have an account? &nbsp;
+                    <button color="secondary" onClick={ () => setShowLogin( false ) }>
+                      Sign Up
+                    </button>
+                  </p>
+                </>
+              ) : (
+                <>
+                  {/* <SignUpForm setUser={ setUser } /> */}
+                  <p>
+                    Already have an account? &nbsp;
+                    <button color="secondary" onClick={ () => setShowLogin( true ) }>
+                      Log In
+                    </button>
+                  </p>
+                </>
+              ) }
+            </>
           </div>
         </div>
       </div>

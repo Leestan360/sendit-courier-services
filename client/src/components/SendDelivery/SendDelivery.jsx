@@ -31,15 +31,15 @@ const SendDelivery = () => {
     dispatch(setOrderList({}));
   };
 
-    //fetches user data stored in redux state
+    // //fetches user data stored in redux state
     // useEffect(()=>{
     //   console.log(signupState);
     //   console.log(!!signupState.id);
-    //   if(signupState.id){
-        
+    //   if(!!signupState.id === false){
+    //     // navigate("/signup")
     //   }
     //   console.log(error);
-    // },[])
+    // },[signupState])
 
   return (
     <div className="bg-gray-100 w-[100%] text-slate-900">
