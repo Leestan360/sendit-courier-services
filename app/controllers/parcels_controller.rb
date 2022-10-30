@@ -1,6 +1,6 @@
 class ParcelsController < ApplicationController
 
-    # skip_before_action :authorize, only: [:index, :create, :show, :destroy, :update]
+    skip_before_action :authorize, only: [:index, :create, :show, :destroy, :update]
 
     def index
         render json: Parcel.all, status: :ok
@@ -22,7 +22,7 @@ class ParcelsController < ApplicationController
 
     def update
         parcel = find_params
-        parcel.update(parcel_params)
+        parcel.update(edit_params)
         render json: parcel, status: :ok
     end
 
@@ -30,6 +30,10 @@ class ParcelsController < ApplicationController
 
     def find_params 
         Parcel.find(params[:id])
+    end
+
+    def edit_params
+        params.permit(:delivery_location)
     end
 
     def parcel_params
