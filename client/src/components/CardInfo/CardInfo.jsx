@@ -9,6 +9,9 @@ const CardInfo = ({ choose }) => {
   const dispatch = useDispatch();
   const option = useSelector((state) => state.orderList.value);
   const { signupState, loading, error } = useSelector((state) => ({ ...state.signup }));
+  const { loginState } = useSelector((state) => ({
+    ...state.login,
+  }));
 
 
     //fetches user data stored in redux state
@@ -16,7 +19,7 @@ const CardInfo = ({ choose }) => {
       console.log(signupState);
       setUser(signupState)
 
-    },[signupState])
+    },[signupState, loginState])
 
 
   const handleCardInput = (event) => {
@@ -29,9 +32,9 @@ const CardInfo = ({ choose }) => {
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(setOrderList({ user_id:user.id, ...option, expected_time:24}))
+    dispatch(setOrderList({ user_id:user.id, ...option}))
     console.log(option);
-    dispatch(setOrder({ user_id:user.id, ...option}));
+    dispatch(setOrder({ ...option}));
   };
 
   return (
