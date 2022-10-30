@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  skip_before_action :authorize, only: [:create]
+  # skip_before_action :authorize, only: [:create]
 
   # get all users
   def index
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   # show details of the current logged in user
   def show
-    render json: @current_user
+    render json: User.find(session[:user_id])
   end
 
   # update user details

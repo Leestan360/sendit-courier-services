@@ -4,7 +4,10 @@ import { useSelector } from "react-redux";
 import Deliveries from "../../components/deliveries/Deliveries";
 
 
-const MyDeliveries = () => {
+const MyDeliveries = ( { getMe, login } ) => {
+
+  
+
     const display = useSelector((state) => state.toggle.value);
 
     return (
@@ -12,7 +15,7 @@ const MyDeliveries = () => {
         <NavBar />
         <div className="flex">
           <div>{display ? <DashBoard /> : null}</div>
-            <Deliveries />
+            <Deliveries getMe={getMe} login={login} />
         </div>
       </div>
     );

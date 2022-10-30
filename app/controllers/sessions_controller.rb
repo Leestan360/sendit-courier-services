@@ -15,12 +15,12 @@ class SessionsController < ApplicationController
 
   # logout a user
   def destroy 
-    if session[:user_id]
-        session.delete :user_id
+    # if session[:user_id]
+        session.clear
         head :no_content
-    else
-      render json: {errors: ["You must be logged in to access this content"] }, status: :unauthorized
-    end
+    # else
+    #   render json: {errors: ["You must be logged in to access this content"] }, status: :unauthorized
+    # end
   end
 
 end

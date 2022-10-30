@@ -60,11 +60,15 @@ import DeliveryDetails from "./DeliveryDetails";
 //         },
 //     ];
 
-function Deliveries() {
+function Deliveries ( { getMe, login } ) {
   const [posts, setPosts] = useState([]);
 
  
-  
+  useEffect( () => {
+    fetch( "/me" )
+      .then( ( r ) => r.json() )
+      .then( ( user ) => console.log( user ) );
+  }, [ login ] );
 
   // useEffect(() => {
   //   fetch("/parcels")

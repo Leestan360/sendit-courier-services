@@ -1,9 +1,23 @@
 import { useNavigate } from "react-router-dom";
-import { IoIosSend } from "react-icons/io";
+// import { useState, useEffect } from "react";
+// import { IoIosSend } from "react-icons/io";
 import plane from "./plane.svg";
+// import Login from "../../pages/login/Login";
 
 const HeroSection = () => {
   const navigate = useNavigate();
+  // const [ user, setUser ] = useState( null );
+
+  // useEffect( () => {
+  //   fetch( "/me" ).then( ( res ) => {
+  //     if ( res.ok )
+  //     {
+  //       res.json().then( ( user ) => setUser( user ) );
+  //     }
+  //   } );
+  // }, [] );
+
+  // if ( !user ) return <Login setUser={ setUser } user={user} />;
 
   const handleNavigateSignup = () => {
     navigate("/signup");
