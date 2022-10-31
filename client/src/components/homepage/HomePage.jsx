@@ -4,7 +4,7 @@ import { CgProfile } from "react-icons/cg";
 function HomePage() {
   return (
      <>
-<section className=" bg-blueGray-200 -mt-24">
+<section className=" bg-blueGray-200 -mt-24 font-poppins">
   <div className="container mx-auto px-4">
     <div className="flex flex-wrap">
       <div className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
@@ -14,7 +14,7 @@ function HomePage() {
         </div>
       </div>
     </div>
-    <div className="flex flex-wrap items-center mt-16">
+    <div className="flex flex-wrap items-center mt-16 font-jost ">
       <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
         <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
           {/* <i className="fas fa-user-friends text-xl"></i> */}
@@ -23,7 +23,7 @@ function HomePage() {
         <h3 className="text-3xl mb-2 font-semibold leading-normal">
           Working with us is a pleasure
         </h3>
-        <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
+        <p className="text-lg font-lightleading-relaxed mt-4 mb-4 text-blueGray-600">
           Personal deliveries to work often seem like the best solution when you cannot wait for the courier at home. However, there is one thing we do not always take into consideration – the work mailroom policy and the etiquette for parcel delivery at the office.
         </p>
         <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-600">
@@ -63,8 +63,8 @@ function HomePage() {
   </footer> */}
 </section>
       
-<div className="flex items-center justify-center mt-10 bg-indigo-50">
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
+<div className="flex items-center justify-center mt-10 bg-indigo-50 mb-4">
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 pt-6 pb-6">
         
         <div className="relative bg-white py-6 px-6 rounded-3xl w-64 my-4 shadow-sm">
             <div class=" text-white flex items-center absolute rounded-full py-4 px-4 shadow-xl bg-pink-500 left-4 -top-6">
@@ -96,11 +96,11 @@ function HomePage() {
                     <div className="my-2">
                         <p className="font-semibold text-base mb-2">Team Members</p>
                         <div className="flex space-x-2">
-                            <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
+                            <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""
                             className="w-6 h-6 rounded-full"/>
-                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2KDK4L372WfwDkOMlCzOI3bFBrtC4ILqLQA&usqp=CAU" 
+                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2KDK4L372WfwDkOMlCzOI3bFBrtC4ILqLQA&usqp=CAU" alt=""
                             className="w-6 h-6 rounded-full"/>
-                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxSqK0tVELGWDYAiUY1oRrfnGJCKSKv95OGUtm9eKG9HQLn769YDujQi1QFat32xl-BiY&usqp=CAU" 
+                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxSqK0tVELGWDYAiUY1oRrfnGJCKSKv95OGUtm9eKG9HQLn769YDujQi1QFat32xl-BiY&usqp=CAU" alt=""
                             className="w-6 h-6 rounded-full"/>
                         </div>
                     </div>
@@ -145,7 +145,7 @@ function HomePage() {
                     <div className="my-2">
                         <p className="font-semibold text-base mb-2">Team Members</p>
                         <div className="flex space-x-2">
-                            <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
+                            <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""
                             className="w-6 h-6 rounded-full"/>
                         </div>
                     </div>
@@ -190,11 +190,11 @@ function HomePage() {
                     <div className="my-2">
                         <p className="font-semibold text-base mb-2">Team Member</p>
                         <div className="flex space-x-2">
-                            <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
+                            <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""
                             className="w-6 h-6 rounded-full"/>
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxSqK0tVELGWDYAiUY1oRrfnGJCKSKv95OGUtm9eKG9HQLn769YDujQi1QFat32xl-BiY&usqp=CAU" 
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxSqK0tVELGWDYAiUY1oRrfnGJCKSKv95OGUtm9eKG9HQLn769YDujQi1QFat32xl-BiY&usqp=CAU" alt=""
                             className="w-6 h-6 rounded-full"/>
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2KDK4L372WfwDkOMlCzOI3bFBrtC4ILqLQA&usqp=CAU" 
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2KDK4L372WfwDkOMlCzOI3bFBrtC4ILqLQA&usqp=CAU" alt=""
                             className="w-6 h-6 rounded-full"/>
                         </div>
                     </div>
@@ -240,9 +240,9 @@ function HomePage() {
                     <div className="my-2">
                         <p className="font-semibold text-base mb-2">Team Members</p>
                         <div className="flex space-x-2">
-                           <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" 
+                           <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=''
                             className="w-6 h-6 rounded-full"/>
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2KDK4L372WfwDkOMlCzOI3bFBrtC4ILqLQA&usqp=CAU" 
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2KDK4L372WfwDkOMlCzOI3bFBrtC4ILqLQA&usqp=CAU" alt=''
                             className="w-6 h-6 rounded-full"/>
                         </div>
                     </div>
@@ -261,4 +261,4 @@ function HomePage() {
   )
 }
 
-export default HomePage
+export default HomePage;

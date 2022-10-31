@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import HeroSection from "../../components/HeroSection/HeroSection";
 import MidSection from "../../components/MidSection/MidSection";
 import Footer from "../../components/footer/Footer";
+import HomePage from "../../components/homepage/HomePage";
 
 const Home = () => {
   const display = useSelector((state) => state.toggle.value);
@@ -15,7 +16,6 @@ const Home = () => {
   // console.log(error);
   
 
-
   return (
     <div>
       <div className="flex">
@@ -23,6 +23,7 @@ const Home = () => {
         <div className="flex flex-col w-[100%]">
         <HeroSection />
         <MidSection />
+        <HomePage />
         <Footer />
         </div>
       </div>
