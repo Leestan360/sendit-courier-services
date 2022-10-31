@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :payments
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
@@ -10,5 +9,6 @@ Rails.application.routes.draw do
 
   resources :parcels, only: [:index, :create, :show, :destroy, :update]
   resources :users, only: [:index, :create]
+  resources :payments, only: [:index, :create, :show, :update, :destroy] 
 
 end

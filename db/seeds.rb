@@ -23,4 +23,22 @@ Parcel.create([
     }
 ])
 
+Payment.create([
+    {
+        user_id:1,
+        card_number:200,
+        card_name: "kcb",
+        expiration_date:12,
+        security_code:340
+    },
+    {
+        user_id:2,
+        card_number:140,
+        card_name: "airtel money",
+        expiration_date:10,
+        security_code:300
+    }
+    
+])
+
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

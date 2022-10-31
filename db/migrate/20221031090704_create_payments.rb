@@ -5,6 +5,7 @@ class CreatePayments < ActiveRecord::Migration[7.0]
       t.string :card_name
       t.integer :expiration_date
       t.integer :security_code
+      t.integer :user_id
 
       t.timestamps
     end
