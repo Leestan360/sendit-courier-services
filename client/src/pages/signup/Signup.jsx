@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createPost, formError } from "../../features/signup";
+import { createPost, formError, userData } from "../../features/signup";
 import { useNavigate } from "react-router-dom";
 import signup from "./signup.svg";
 
@@ -30,6 +30,9 @@ const Signup = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(createPost(user));
+    // if(!!userData){
+    //   navigate("/delivery")
+    // }
   };
 
   //fetches user data stored in redux state

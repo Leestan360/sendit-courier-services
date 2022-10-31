@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser, formError } from "../../features/login";
+import { loginUser, formError, userData } from "../../features/login";
 import login from "./login.svg";
 
 const Login = () => {
@@ -24,28 +24,34 @@ const Login = () => {
     const name = event.target.name;
     const value = event.target.value;
     setUser({ ...user, [name]: value.toLowerCase() });
-    // console.log(user);
+    console.log(user);
   };
 
   //submit userdata to database
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log(user);
     dispatch(loginUser(user));
+    console.log(userData);
+    // if(!!userData){
+    //   navigate("/delivery");
+    // }
     // setData(loginState);
     // console.log(loginState);
     // console.log(data);
     // console.log(loading);
   };
 
-  // //fetches user data stored in redux state
-  // useEffect(() => {
-  //   if (!!loginState.id) {
-  //     console.log(loginState.id);
-  //     console.log(loginState);
-  //     navigate("/delivery");
-  //   }
-  //   console.log(error);
-  // }, [loginState]);
+  //fetches user data stored in redux state
+  useEffect(() => {
+    if (!!loginState.id) {
+      console.log(loginState.id);
+      console.log(loginState);
+      navigate("/delivery");
+    }
+    console.log(error);
+  }, [userData]);
+
 
   return (
     <div className="bg-indigo-50 font-jost mt-[40px]">
@@ -109,6 +115,7 @@ const Login = () => {
                   name="password"
                   //   type={showpass ? "text" : "password"}
                   type="password"
+                  onChange={handleInput}
                   className="bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
                 />
                 <p className="text-red-500 text-xs m-3">

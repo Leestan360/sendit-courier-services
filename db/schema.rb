@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_26_090011) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_30_175155) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_090011) do
     t.string "pickup_location"
     t.boolean "perishable"
     t.boolean "fragility"
-    t.datetime "expected_time"
+    t.string "expected_time"
     t.string "delivery_location"
     t.string "category_type"
     t.integer "user_id"

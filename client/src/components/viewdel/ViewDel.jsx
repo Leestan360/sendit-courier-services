@@ -68,7 +68,7 @@ function ViewDel () {
                 <div>
                   <h3 className="text-base font-work font-extrabold">Weight</h3>
                   <p className="w-[200px] rounded-full bg-indigo-50 text-blue-800 ">
-                    <span className="text-3xl">{ parcel.weight }</span>kilograms
+                    <span className="text-xl font-work">{parcel.weight}</span>kilograms
                   </p>
                 </div>
               </div>
@@ -79,7 +79,7 @@ function ViewDel () {
                 <div>
                   <h3 className="text-base font-work font-extrabold">Category Type</h3>
                   <p className="w-[200px] rounded-full bg-indigo-50 text-blue-800 ">
-                    <span className="text-3xl">{ parcel.category_type } </span>
+                    <span className="text-xl font-work">{parcel.category_type} </span>
                   </p>
                 </div>
               </div>
@@ -90,7 +90,7 @@ function ViewDel () {
                 <div>
                   <h3 className="text-base font-work font-extrabold">Fragility</h3>
                   <p className="w-[200px] rounded-full bg-indigo-50 text-blue-800 ">
-                    <span className="text-3xl"> { parcel.fragility } </span>
+                    <span className="text-xl font-work"> {parcel.fragility} </span>
                   </p>
                 </div>
               </div>
@@ -103,7 +103,7 @@ function ViewDel () {
                 <div>
                   <h3 className="text-base font-work font-extrabold">Pickup Location</h3>
                   <p className="w-[200px] rounded-full bg-indigo-50 text-blue-800 ">
-                    <span className="text-3xl"> { parcel.pickup_location } </span>
+                    <span className="text-xl font-work"> { parcel.pickup_location } </span>
                   </p>
                 </div>
               </div>
@@ -114,10 +114,7 @@ function ViewDel () {
                 <div>
                   <h3 className="text-base font-work font-extrabold">Delivery Location</h3>
                   <p className="w-[200px] rounded-full bg-indigo-50 text-blue-800 ">
-                    <span className="text-3xl"> { parcel.delivery_location } </span>
-                    <span>
-                      <FaEdit />
-                    </span>
+                    <span className="text-xl font-work"> { parcel.delivery_location } </span>
                   </p>
                 </div>
               </div>
@@ -128,7 +125,7 @@ function ViewDel () {
                 <div>
                   <h3 className="text-base font-work font-extrabold">Expected Time</h3>
                   <p className="w-[200px] rounded-full bg-indigo-50 text-blue-800 ">
-                    <span className="text-3xl"> { parcel.expected_time } </span>`coming soon`
+                    <span className="text-xl font-work"> {parcel.expected_time} </span>
                   </p>
                 </div>
               </div>

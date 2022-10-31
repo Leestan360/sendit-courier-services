@@ -7,7 +7,17 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setParcelId } from "../../features/parcelID";
 
-function DeliveryDetails({ category, key, pickup, place, weight, id }) {
+function DeliveryDetails({
+  category,
+  key,
+  pickup,
+  place,
+  weight,
+  id,
+  time,
+  fragile,
+  perishable,
+}) {
   // const [ parcel, setParcel ] = useState( "" );
 
   const dispatch = useDispatch();
@@ -24,25 +34,48 @@ function DeliveryDetails({ category, key, pickup, place, weight, id }) {
 
   return (
     <>
-      <div
-        className="w-full rounded-lg shadow-md lg:max-w-sm  bg-white"
-        key={key}
-      >
+      <div className="rounded-lg shadow-lg  bg-white " key={key}>
         <div className="p-4">
-          <h4 className="text-xl font-semibold text-slate-800">{category}</h4>
-          <h5 className="text-x font-roboto text-slate-600">
-            {/* {items.subtitle} */}
-          </h5>{" "}
-          <hr /> <br /> <br />
-          <p className="mb-2 leading-normal flex gap-6">
-            <GoLocation className="text-blue-800" size={20} />
-            {pickup} <BsArrowRight className="text-blue-800" size={20} />{" "}
-            {place}
-          </p>
-          <p className="mb-2 leading-normal flex gap-6">
-            <FaWeightHanging size={20} /> {weight}
-          </p>
-          <br /> <hr /> <br />
+          <div className="flex items-center ">
+            <i class="fa-solid fa-circle fa-sharp fa-sm text-green-400"></i>
+            <h3 className="mx-2 font-open text-sm">status</h3>
+          </div>
+          <hr className="my-3" />
+          <div className="flex justify-between items-center">
+            <h4 className="font-poppins text-lg font-semibold text-gray-600">
+              {category}
+            </h4>
+            <div className="flex items-center p-3">
+              <i class="fa-regular fa-clock fa-xl mx-2 text-gray-500"></i>
+              <h3 className="font-poppins text-gray-500">{time}</h3>
+            </div>
+          </div>
+          <hr className="my-3" />
+          <h3 className="font-work m-1">pickup location</h3>
+          <div className="flex items-center bg-indigo-50 rounded-lg p-3">
+            <i class="fa-solid fa-location-dot fa-xl text-red-500 mx-3"></i>
+            <h3 className="font-poppins font-bold text-xl">{pickup}</h3>
+          </div>
+          <hr className="my-3" />
+          <h3 className="font-work m-1">delivery location</h3>
+          <div className="flex items-center bg-indigo-50 rounded-lg p-3">
+            <i class="fa-solid fa-location-crosshairs fa-xl text-red-400 mx-3"></i>
+            <h3 className="font-poppins font-bold text-xl">{place}</h3>
+          </div>
+          <hr className="my-3" />
+          <div className="flex items-center">
+            <i class="fa-solid fa-scale-balanced fa-xl text-gray-700 mx-2 "></i>
+            <h3 className="font-work">
+              <span className=" text-3xl">{weight}</span> kilograms
+            </h3>
+          </div>
+          <hr className="my-3" />
+          <div>
+            <i
+              class="fa-solid fa-square-fragile text-blue-500 "
+              // style={fragile ? { display: "block" } : { display: "none" }}
+            ></i>
+          </div>
           <div className="flex justify-between w-full lg:max-w-sm">
             <button
               onClick={handleView}
