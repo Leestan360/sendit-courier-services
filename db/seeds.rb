@@ -8,7 +8,7 @@ Parcel.create([
         perishable: true,
         fragility: true,
         expected_time: "",
-        delivery_location: "Weatlands",
+        delivery_location: "Westlands",
         category_type: "electronic"
     },
     {
