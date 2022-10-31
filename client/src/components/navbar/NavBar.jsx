@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { toggleNavbar } from "../../features/toggle";
 import { loginUser, formError, userData } from "../../features/login";
+import { setCurrentUser } from "../../features/currentUser";
 // import { toggle } from "../../features/toggle";
 
 const NavBar = () => {
@@ -33,6 +34,7 @@ const NavBar = () => {
     console.log(JSON.parse(localStorage.getItem("user")));
     setUser(JSON.parse(localStorage.getItem("user")));
     console.log(user);
+    dispatch(setCurrentUser(JSON.parse(localStorage.getItem("user"))))
   }, [signupState, loginState]);
 
   return (
@@ -46,11 +48,7 @@ const NavBar = () => {
         <h1 className="font-open text-2xl">Send IT</h1>
       </div>
       <div className="flex items-center">
-        <img
-          src={process.env.PUBLIC_URL + "/user-img.jpg"}
-          alt=""
-          className="max-w-[40px] rounded-full"
-        />
+      <i class='bx bxs-user-circle bx-md'></i>
         <h3 className="hidden md:block font-open mx-5">Welcome {user.first_name} {user.last_name}</h3>
       </div>
     </div>

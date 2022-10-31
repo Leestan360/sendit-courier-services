@@ -14,14 +14,8 @@ const CardInfo = ({ choose }) => {
   }));
 
 
-    //fetches user data stored in redux state
-    useEffect(()=>{
-      console.log(signupState);
-      setUser(signupState)
-
-    },[signupState, loginState])
-
-
+  
+  
   const handleCardInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -32,10 +26,20 @@ const CardInfo = ({ choose }) => {
   
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(setOrderList({ user_id:user.id, ...option}))
+    dispatch(setOrderList({  ...option}))
     console.log(option);
     dispatch(setOrder({ ...option}));
+    
   };
+
+  //fetches user data stored in redux state
+  useEffect(()=>{
+    console.log(signupState);
+    console.log(JSON.parse(localStorage.getItem("user")));
+    // setUser(JSON.parse(localStorage.getItem("user")));
+    console.log(user);
+  },[signupState, loginState])
+
 
   return (
     <div style={choose ? { display: "none" } : { display: "block" }}>

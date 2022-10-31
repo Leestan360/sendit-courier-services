@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import DeliveryDetails from "./DeliveryDetails";
 // const posts = [
 //         {
@@ -62,7 +63,17 @@ import DeliveryDetails from "./DeliveryDetails";
 
 function Deliveries() {
   const [posts, setPosts] = useState([]);
+  const [ filteredPosts, setFilteredPosts ] = useState([]);
+  // const user = JSON.parse(localStorage.getItem("user"))
+  const currentUser  = useSelector((state)=>({ ...state.currentUser.value }))
 
+  const { signupState } = useSelector((state) => ({ ...state.signup }));
+  const { loginState } = useSelector((state) => ({
+    ...state.login,
+  }));
+
+
+  console.log(currentUser)
  
   
 
@@ -80,16 +91,28 @@ function Deliveries() {
       let request = await fetch("http://localhost:3000/parcels")
       let data = await request.json();
       console.log(data);
-      setPosts(data);
+      // setPosts(data);
+      // setFilteredPosts(data)
+      const filter = await data.filter((parcel)=>{
+        return parcel.user.id === currentUser.id ;
+      })
+      await setPosts(filter);
+      // const filtered = filteredPosts.filter((parcel)=>{
+      //   return parcel.user.id === currentUser.id
+      // })
+      // console.log(filtered);
+      // setPosts(filtered);
+      console.log(posts)
     }
     getData();
-  },[])
+  },[ ])
+
 
 
   return (
-    <div className="grid gap-2 lg:grid-cols-4 max-w-[1300px] w-[100%]" style={{padding: "20px 150px 450px 40px", backgroundColor: "#E5DDD1"}}>
+    <div className="grid gap-2 lg:grid-cols-3 bg-indigo-50 min-h-screen p-5 w-full ">
       {posts.map((items, key) => (
-        < DeliveryDetails category={ items.category_type } key={key} pickup={items.pickup_location} place={items.place} weight={items.weight} id={items.id} />
+        < DeliveryDetails category={ items.category_type } pickup={items.pickup_location} place={items.delivery_location} weight={items.weight} id={items.id} time={items.expected_time} fragile={items.fragility} perishable={items.perishable} />
       ))}
     </div>
   );
