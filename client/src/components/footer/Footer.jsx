@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-around font-poppins text-slate-800 font-thin ">
+    <div className="flex flex-col md:flex-row justify-around font-poppins text-slate-800 font-thin mb-8">
       <div className="max-w-[600px] w-[100%] md:w-auto px-2">
         <h3 className="font-bold text-xl">Contact</h3>
         <ul>
@@ -15,7 +15,7 @@ const Footer = () => {
           </li>
         </ul>
         <div className="flex flex-col justify-around">
-          <h3 className="font-bold text-xl">Follow Us</h3>
+          <h3 className="font-bold text-xl mb-[6px]">Follow Us</h3>
           <div className="flex ">
             <i class="bx bxl-facebook-circle bx-sm p-1"></i>
             <i class="bx bxl-twitter bx-sm p-1"></i>

@@ -1,22 +1,24 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createPost } from "../../features/signup";
+import { createPost, formError, userData } from "../../features/signup";
 import { useNavigate } from "react-router-dom";
+import signup from "./signup.svg";
 
 const Signup = () => {
-
   const [user, setUser] = useState({});
-  const [ data, setData ] = useState();
+  const [data, setData] = useState();
   const dispatch = useDispatch();
-  const { signupState, loading, error } = useSelector((state) => ({ ...state.signup }));
+  const { signupState, loading } = useSelector((state) => ({
+    ...state.signup,
+  }));
   const navigate = useNavigate();
 
   //navigates user to loginpage
-  const handleNavigateLogin = () =>{
-    navigate("/login")
-  }
+  const handleNavigateLogin = () => {
+    navigate("/login");
+  };
 
-  //handles inputs from signup form 
+  //handles inputs from signup form
   const handleInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -28,22 +30,20 @@ const Signup = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(createPost(user));
-    // setData(signupState);
-    // console.log(signupState);
-    // console.log(data);
-    // console.log(loading);
+    // if(!!userData){
+    //   navigate("/delivery")
+    // }
   };
 
   //fetches user data stored in redux state
-  useEffect(()=>{
-    console.log(signupState);
-    console.log(error);
-  },[signupState])
+  useEffect(() => {
+    // console.log(signupState);
+    console.log(!!signupState.id);
+    if (!!signupState.id) {
+      navigate("/delivery");
+    }
+  }, [signupState]);
 
-  // console.log(signupState);
-  // console.log(loading);
-  // console.log(error);
-  
   return (
     <div>
       {/* <Navbar /> */}
@@ -51,12 +51,8 @@ const Signup = () => {
         <div className="xl:px-20 md:px-10 sm:px-6 px-4 md:py-12 py-9 2xl:mx-auto 2xl:container md:flex items-center justify-center">
           <div className=" md:hidden sm:mb-8 mb-6"></div>
           <div className="bg-white shadow-lg rounded  md:w-[100%] md:max-w-[800px] lg:w-[100%] lg:max-w-[1000px] flex flex-col lg:flex-row">
-            <div className="md:max-w-[800px] md:w-[100%] lg:w-[500px]">
-              <img
-                // src={process.env.PUBLIC_URL + "/small_house.jpg"}
-                alt=""
-                className="lg:w-[100%] lg:h-[100%] object-cover"
-              />
+            <div className="md:max-w-[800px] md:w-[100%] lg:w-[500px] flex justify-around items-center">
+              <img src={signup} alt="" className="object-cover" />
             </div>
             <div className="lg:w-[500px] flex flex-col items-center lg:px-10 sm:px-6 sm:py-10 xxs:py-4">
               <p
@@ -71,7 +67,7 @@ const Signup = () => {
               >
                 Already have account?
                 <p
-                    onClick={handleNavigateLogin}
+                  onClick={handleNavigateLogin}
                   className="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none text-gray-800 cursor-pointer ml-2"
                 >
                   Login here
@@ -143,16 +139,14 @@ const Signup = () => {
                     {" "}
                     Phone Number{" "}
                   </label>
-                  <div className="relative flex items-center justify-center">
-                    <input
-                      id="number"
-                      name="phone_number"
-                      type="number"
-                      placeholder="e.g: 0785238923"
-                      className="bg-gray-100 border rounded text-xs font-medium leading-none placeholder-gray-400 text-gray-800 py-3 w-full pl-3 mt-2"
-                      onChange={handleInput}
-                    />
-                  </div>
+                  <input
+                    id="number"
+                    name="phone_number"
+                    type="number"
+                    placeholder="e.g: 0785238923"
+                    className="bg-gray-100 border rounded text-xs font-medium leading-none placeholder-gray-400 text-gray-800 py-3 w-full pl-3 mt-2"
+                    onChange={handleInput}
+                  />
                 </div>
                 <div className="mt-3 w-full">
                   <label
@@ -162,16 +156,14 @@ const Signup = () => {
                     {" "}
                     Password{" "}
                   </label>
-                  <div className="relative flex items-center justify-center">
-                    <input
-                      id="myInput"
-                      name="password"
-                      // type={showpass ? "text" : "password"}
-                      type="password"
-                      className="bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
-                      onChange={handleInput}
-                    />
-                  </div>
+                  <input
+                    id="myInput"
+                    name="password"
+                    // type={showpass ? "text" : "password"}
+                    type="password"
+                    className="bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+                    onChange={handleInput}
+                  />
                 </div>
                 <div className="mt-3 w-full">
                   <label
@@ -181,39 +173,18 @@ const Signup = () => {
                     {" "}
                     Password Confirmation{" "}
                   </label>
-                  <div className="relative flex items-center justify-center">
-                    <input
-                      id="password_confirmation"
-                      name="password_confirmation"
-                      // type={showpass ? "text" : "password"}
-                      type="password"
-                      className="bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
-                      onChange={handleInput}
-                    />
-                  </div>
-                </div>
-                <div
-                  className="mt-3"
-                  //   style={login ? { display: "none" } : { display: "block" }}
-                >
-                  <label
-                    htmlFor="myInput"
-                    className="text-sm font-medium leading-none text-red-700 "
-                  >
-                    Please Sign Up if you don't have an account
-                  </label>
-                </div>
-                <div
-                  className="mt-8"
-                  //   style={login ? { display: "block" } : { display: "none" }}
-                >
-                  <label
-                    htmlFor="myInput"
-                    className="text-sm font-medium leading-none text-red-700 p-2"
-                    // style={showError?{display:"block"}:{display:"none"}}
-                  >
-                    your login information may be too short or wrong
-                  </label>
+
+                  <input
+                    id="password_confirmation"
+                    name="password_confirmation"
+                    // type={showpass ? "text" : "password"}
+                    type="password"
+                    className="bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+                    onChange={handleInput}
+                  />
+                  <p className="text-red-500 text-xs m-3">
+                    {formError.errors[0]}
+                  </p>
                 </div>
                 <div className="mt-2">
                   <input
