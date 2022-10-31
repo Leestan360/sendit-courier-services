@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   resources :parcels, only: [:index, :create, :show, :destroy, :update]
   resources :users, only: [:index, :create]
-  resources :payments, only: [:index, :create, :show, :update, :destroy] 
+  resources :payments, only: [:create] 
 
 end
