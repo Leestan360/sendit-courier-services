@@ -55,7 +55,7 @@ Rails.application.configure do
 
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
-  config.hosts << /[a-z0–9-.]+\.ngrok\.io/
+  config.hosts << /[a-z0-9-.]+\.ngrok\.io/
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
