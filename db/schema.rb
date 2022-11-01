@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_31_090704) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_01_100249) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "access_tokens", force: :cascade do |t|
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -38,6 +44,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_31_090704) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "mpesas", force: :cascade do |t|
+    t.string "checkoutRequestID"
+    t.string "merchantRequestID"
+    t.string "amount"
+    t.string "mpesaReceiptNumber"
+    t.string "phoneNumber"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "parcels", force: :cascade do |t|
