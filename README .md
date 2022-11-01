@@ -50,10 +50,10 @@ The application is meant to be an inspiration to many developers willing to come
 
 - [@Leestan360](https://github.com/Leestan360)
   [@auma2022](https://github.com/auma2022)
+  <!-- [@Leestan360](https://github.com/Leestan360)
   [@Leestan360](https://github.com/Leestan360)
   [@Leestan360](https://github.com/Leestan360)
-  [@Leestan360](https://github.com/Leestan360)
-  [@Leestan360](https://github.com/Leestan360) 
+  [@Leestan360](https://github.com/Leestan360)  -->
 
 ## Badges
 
