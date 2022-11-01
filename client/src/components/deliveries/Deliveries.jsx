@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DeliveryDetails from "./DeliveryDetails";
+import { setCurrentUser } from "../../features/currentUser";
+
 // const posts = [
 //         {
 //             title: "Order Number: #87654",
@@ -70,44 +72,44 @@ function Deliveries() {
   const { signupState } = useSelector((state) => ({ ...state.signup }));
   const { loginState } = useSelector((state) => ({
     ...state.login,
-  }));
+  } ) );
+  const [ user, setUser ] = useState( {} );
+  const dispatch = useDispatch()
 
+  // console.log(currentUser)
 
-  console.log(currentUser)
- 
-  
+  useEffect( () => {
+    // fetch( "/me" )
+    //   .then( ( r ) => r.json() )
+    //   .then( ( user ) => {
+    //     console.log( user );
+    //     setUser( user );
+    //     dispatch( setCurrentUser( user ) );
+    //   } );
+  }, [] );
 
-  // useEffect(() => {
-  //   fetch("/parcels")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data)
-  //       return setPosts(data)
-  //     }
-  // },[]);
+  useEffect( () => {
 
-  useEffect(()=>{
-    const getData = async ()=>{
+    const getData = async () => {
+      let userRequest = await fetch( "/me" )
+      let userRequestData = await userRequest.json();
+      await setUser( userRequestData )
+      await console.log(userRequestData);
+      await dispatch( setCurrentUser( userRequestData ) );
+      
       let request = await fetch("http://localhost:3000/parcels")
       let data = await request.json();
-      console.log(data);
-      // setPosts(data);
-      // setFilteredPosts(data)
+      console.log( data );
+      
       const filter = await data.filter((parcel)=>{
-        return parcel.user.id === currentUser.id ;
+        return parcel.user.id === user.id ;
       })
       await setPosts(filter);
-      // const filtered = filteredPosts.filter((parcel)=>{
-      //   return parcel.user.id === currentUser.id
-      // })
-      // console.log(filtered);
-      // setPosts(filtered);
-      console.log(posts)
+      await console.log(posts)
     }
     getData();
-  },[ ])
-
-
+  }, [] )
+  
 
   return (
     <div className="grid gap-2 lg:grid-cols-3 bg-indigo-50 min-h-screen p-5 w-full ">

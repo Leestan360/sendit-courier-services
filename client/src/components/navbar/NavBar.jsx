@@ -31,11 +31,18 @@ const NavBar = () => {
   // }, [signupState]);
 
   useEffect(() => {
-    console.log(JSON.parse(localStorage.getItem("user")));
-    setUser(JSON.parse(localStorage.getItem("user")));
-    console.log(user);
-    dispatch(setCurrentUser(JSON.parse(localStorage.getItem("user"))))
-  }, [signupState, loginState]);
+    // console.log(JSON.parse(localStorage.getItem("user")));
+    // setUser(JSON.parse(localStorage.getItem("user")));
+    // console.log(user);
+    // dispatch(setCurrentUser(JSON.parse(localStorage.getItem("user"))))
+    fetch( "/me" )
+      .then( ( r ) => r.json() )
+      .then( ( user ) => { 
+        console.log( user );
+        setUser(user)
+        dispatch(setCurrentUser(user))
+       } )
+  }, []);
 
   return (
     <div className="flex justify-between items-center text-slate-800 shadow-lg p-2">
