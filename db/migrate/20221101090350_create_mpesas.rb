@@ -6,8 +6,6 @@ class CreateMpesas < ActiveRecord::Migration[7.0]
       t.string :amount
       t.string :mpesaReceiptNumber
       t.string :phoneNumber
-      t.string :—
-      t.string :no-test-framework
 
       t.timestamps
     end

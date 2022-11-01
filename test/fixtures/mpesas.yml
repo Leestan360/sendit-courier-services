@@ -6,8 +6,7 @@ one:
   amount: MyString
   mpesaReceiptNumber: MyString
   phoneNumber: MyString
-  —: MyString
-  no-test-framework: MyString
+  —no-test-framework: MyString
 
 two:
   checkoutRequestID: MyString
@@ -15,5 +14,4 @@ two:
   amount: MyString
   mpesaReceiptNumber: MyString
   phoneNumber: MyString
-  —: MyString
-  no-test-framework: MyString
+  —no-test-framework: MyString
