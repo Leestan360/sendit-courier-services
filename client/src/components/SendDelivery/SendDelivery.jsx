@@ -1,14 +1,28 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setOrder } from "../../features/order";
 import { setOrderList } from "../../features/orderList";
+import { setCurrentUser } from "../../features/currentUser";
+
 
 const SendDelivery = () => {
   const navigate = useNavigate();
+  const [ user, setUser ] = useState( {} );
+
   // const [ option, setOption ] = useState({})
   const option = useSelector((state) => state.orderList.value);
-  const { signupState } = useSelector((state) => ({ ...state.signup }));
+  const { signupState } = useSelector( ( state ) => ( { ...state.signup } ) );
+  
+  useEffect( () => {
+    fetch( "/me" )
+      .then( ( r ) => r.json() )
+      .then( ( user ) => {
+        console.log( user );
+        setUser( user );
+        dispatch( setCurrentUser( user ) );
+      } );
+  }, [] );
 
   const handleNavigate = () => {
     navigate("/location");
@@ -22,7 +36,7 @@ const SendDelivery = () => {
   const handleInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    dispatch(setOrderList({ ...option, [name]: value, user_id:JSON.parse(localStorage.getItem("user")).id }));
+    dispatch(setOrderList({ ...option, [name]: value, user_id: user.id }));
     // setOption({ ...option, [name]:value});
     console.log(option);
   };
