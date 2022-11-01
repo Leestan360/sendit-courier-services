@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :create]
   resources :payments, only: [:create] 
 
+  post "/stkpush", to: "mpesas#stkpush"
+  post "/polling_payment", to: "mpesas#polling_payment"
 end
