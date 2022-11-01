@@ -42,7 +42,7 @@ const NavBar = () => {
         setUser(user)
         dispatch(setCurrentUser(user))
        } )
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="flex justify-between items-center text-slate-800 shadow-lg p-2">

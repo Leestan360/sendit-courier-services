@@ -105,10 +105,10 @@ function Deliveries() {
         return parcel.user.id === user.id ;
       })
       await setPosts(filter);
-      await console.log(posts)
+      await console.log(filter)
     }
     getData();
-  }, [] )
+  }, [user.id] )
   
 
   return (
