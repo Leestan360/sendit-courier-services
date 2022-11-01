@@ -80,9 +80,13 @@ const SendDelivery = () => {
                   className="font-jost bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2 outline-none "
                 >
                   <option value="null">-- Choose Category --</option>
+                  <option value="Clothings">Clothings</option>
+                  <option value="Computing">Computing</option>
+                  <option value="Cosmetics">Cosmetics</option>
+                  <option value="Drinks">Drinks</option>
                   <option value="Electronics">Electronics</option>
-                  <option value="Clothing">Clothing</option>
-                  <option value="Paint">Paint</option>
+                  <option value="Fashions">Fashions</option>
+                  <option value="Gaming">Gaming</option>
                 </select>
               </div>
               <div className="flex flex-col  md:max-w-[320px] md:w-[100%] mx-2">
