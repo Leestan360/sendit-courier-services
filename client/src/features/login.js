@@ -21,7 +21,6 @@ export const loginUser = createAsyncThunk("login/loginUser", async (user) => {
     console.log(request);
     if (request.ok) {
        console.log(data, "yes");
-      localStorage.setItem('user', JSON.stringify(data))
       userData = data;
       return data;
     } else {

@@ -15,33 +15,27 @@ const NavBar = () => {
     ...state.login,
   }));
   const [user, setUser] = useState({});
-  
 
   const handleToggle = () => {
     dispatch(toggleNavbar(!toggleState));
   };
 
-  // //fetches user data stored in redux state
-  // useEffect(() => {
-  //   console.log(signupState);
-  //   console.log(!!signupState.id);
-  //   if (signupState.id) {
-
-  //   }
-  // }, [signupState]);
-
   useEffect(() => {
-    // console.log(JSON.parse(localStorage.getItem("user")));
-    // setUser(JSON.parse(localStorage.getItem("user")));
-    // console.log(user);
-    // dispatch(setCurrentUser(JSON.parse(localStorage.getItem("user"))))
-    fetch( "/me" )
-      .then( ( r ) => r.json() )
-      .then( ( user ) => { 
-        console.log( user );
-        setUser(user)
-        dispatch(setCurrentUser(user))
-       } )
+   const fetchUser = async ()=>{
+    let fetchedUser = await fetch("/me")
+    let fetched = await fetchedUser.json()
+    if(fetchedUser.ok){
+      setUser(fetched);
+      dispatch(setCurrentUser(fetched));
+      console.log(fetched);
+      return fetched;
+    }
+    else{
+      console.log(fetched)
+      return fetched;
+    }
+   }
+   fetchUser()
   }, []);
 
   return (
@@ -55,8 +49,10 @@ const NavBar = () => {
         <h1 className="font-open text-2xl">Send IT</h1>
       </div>
       <div className="flex items-center">
-      <i class='bx bxs-user-circle bx-md'></i>
-        <h3 className="hidden md:block font-open mx-5">Welcome {user.first_name} {user.last_name}</h3>
+        <i class="bx bxs-user-circle bx-md"></i>
+        <h3 className="hidden md:block font-open mx-5">
+          Welcome {user.first_name} {user.last_name}
+        </h3>
       </div>
     </div>
   );
