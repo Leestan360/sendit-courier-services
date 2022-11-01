@@ -9,6 +9,7 @@ import signupReducer from './features/signup';
 import loginReducer from  './features/login';
 import orderListReducer from './features/orderList';
 import parcelIDReducer from "./features/parcelID";
+import currentUserReducer from "./features/currentUser"
 
 const store = configureStore({
   reducer: {
@@ -17,14 +18,15 @@ const store = configureStore({
     login:loginReducer,
     orderList: orderListReducer,
     parcelID: parcelIDReducer,
+    currentUser:currentUserReducer,
   },
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
-  // {/* </React.StrictMode> */}
+  </React.StrictMode>
 );

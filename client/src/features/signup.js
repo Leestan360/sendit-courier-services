@@ -2,7 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { useNavigate } from "react-router-dom";
 
 // const navigate = useNavigate();
-export let formError = {errors:["","","","","","","","","","","","","","","",]};
+export let formError = {errors:["","","","","","","","","","","","","","","","","",""]};
+export let userData = null;
 
 // using redux to post user signup details to the database
 export const createPost = createAsyncThunk(
@@ -27,11 +28,10 @@ export const createPost = createAsyncThunk(
       let data = await request.json();
       console.log(request);
       if (request.ok) {
-        //  console.log(data, "yes");
-        let userInfo = {};
-        userInfo = data;
-        console.log(userInfo);
-        return userInfo;
+        console.log(data, "yes");
+        localStorage.setItem('user', JSON.stringify(data))
+        userData = data;
+        return data;
       } else {
         // console.log(data, "no");
         formError = data;

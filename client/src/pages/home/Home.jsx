@@ -16,7 +16,6 @@ const Home = () => {
   // console.log(error);
   
 
-
   return (
     <div>
       <div className="flex">

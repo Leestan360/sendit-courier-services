@@ -13,7 +13,7 @@ const SendDelivery = () => {
   const handleNavigate = () => {
     navigate("/location");
   };
-
+  
   const dispatch = useDispatch();
   const { orderState, loading, error } = useSelector((state) => ({
     ...state.order,
@@ -22,7 +22,7 @@ const SendDelivery = () => {
   const handleInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    dispatch(setOrderList({ ...option, [name]: value }));
+    dispatch(setOrderList({ ...option, [name]: value, user_id:JSON.parse(localStorage.getItem("user")).id }));
     // setOption({ ...option, [name]:value});
     console.log(option);
   };
@@ -32,14 +32,14 @@ const SendDelivery = () => {
   };
 
     //fetches user data stored in redux state
-    useEffect(()=>{
-      console.log(signupState);
-      console.log(!!signupState.id);
-      if(!!signupState.id === false){
-        navigate("/signup")
-      }
-      console.log(error);
-    },[signupState])
+    // useEffect(()=>{
+    //   console.log(signupState);
+    //   console.log(!!signupState.id);
+    //   if(signupState.id){
+        
+    //   }
+    //   console.log(error);
+    // },[])
 
   return (
     <div className="bg-gray-100 w-[100%] text-slate-900">
@@ -79,10 +79,14 @@ const SendDelivery = () => {
                   onChange={handleInput}
                   className="font-jost bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2 outline-none "
                 >
-                  <option value="null">-- null --</option>
+                  <option value="null">-- Choose Category --</option>
+                  <option value="Clothings">Clothings</option>
+                  <option value="Computing">Computing</option>
+                  <option value="Cosmetics">Cosmetics</option>
+                  <option value="Drinks">Drinks</option>
                   <option value="Electronics">Electronics</option>
-                  <option value="Clothing">Clothing</option>
-                  <option value="Paint">Paint</option>
+                  <option value="Fashions">Fashions</option>
+                  <option value="Gaming">Gaming</option>
                 </select>
               </div>
               <div className="flex flex-col  md:max-w-[320px] md:w-[100%] mx-2">
@@ -95,9 +99,9 @@ const SendDelivery = () => {
                   onChange={handleInput}
                   className="font-jost bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2 outline-none "
                 >
-                  <option value="null">-- null --</option>
-                  <option value="true">True</option>
-                  <option value="false">False</option>
+                  <option value="null">-- Choose Perishability --</option>
+                  <option value="true"> Perishable </option>
+                  <option value="false"> Not Perishable </option>
                 </select>
               </div>
               <div className="flex flex-col  md:max-w-[320px] md:w-[100%] mx-2">
@@ -110,9 +114,9 @@ const SendDelivery = () => {
                   onChange={handleInput}
                   className="font-jost bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2 outline-none "
                 >
-                  <option value="null">-- null --</option>
-                  <option value="true">True</option>
-                  <option value="false">False</option>
+                  <option value="null">-- Choose Fragility --</option>
+                  <option value="true"> Fragile </option>
+                  <option value="false"> Not Fragile</option>
                 </select>
               </div>
             </div>

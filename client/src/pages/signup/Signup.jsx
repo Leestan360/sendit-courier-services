@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createPost, formError } from "../../features/signup";
+import { createPost, formError, userData } from "../../features/signup";
 import { useNavigate } from "react-router-dom";
+import signup from "./signup.svg";
 
 const Signup = () => {
   const [user, setUser] = useState({});
@@ -29,17 +30,19 @@ const Signup = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(createPost(user));
+    // if(!!userData){
+    //   navigate("/delivery")
+    // }
   };
 
   //fetches user data stored in redux state
   useEffect(() => {
-    console.log(signupState);
+    // console.log(signupState);
     console.log(!!signupState.id);
     if (!!signupState.id) {
       navigate("/delivery");
     }
   }, [signupState]);
-
 
   return (
     <div>
@@ -48,12 +51,8 @@ const Signup = () => {
         <div className="xl:px-20 md:px-10 sm:px-6 px-4 md:py-12 py-9 2xl:mx-auto 2xl:container md:flex items-center justify-center">
           <div className=" md:hidden sm:mb-8 mb-6"></div>
           <div className="bg-white shadow-lg rounded  md:w-[100%] md:max-w-[800px] lg:w-[100%] lg:max-w-[1000px] flex flex-col lg:flex-row">
-            <div className="md:max-w-[800px] md:w-[100%] lg:w-[500px]">
-              <img
-                // src={process.env.PUBLIC_URL + "/small_house.jpg"}
-                alt=""
-                className="lg:w-[100%] lg:h-[100%] object-cover"
-              />
+            <div className="md:max-w-[800px] md:w-[100%] lg:w-[500px] flex justify-around items-center">
+              <img src={signup} alt="" className="object-cover" />
             </div>
             <div className="lg:w-[500px] flex flex-col items-center lg:px-10 sm:px-6 sm:py-10 xxs:py-4">
               <p

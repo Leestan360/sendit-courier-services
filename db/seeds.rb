@@ -8,7 +8,7 @@ Parcel.create([
         perishable: true,
         fragility: true,
         expected_time: "",
-        delivery_location: "Weatlands",
+        delivery_location: "Westlands",
         category_type: "electronic"
     },
     {
@@ -21,6 +21,16 @@ Parcel.create([
         delivery_location: "Nakuru",
         category_type: "clothing"
     }
+])
+
+Payment.create([
+    {
+        user_id:1,
+        card_number:200,
+        card_name: "",
+        expiration_date:12,
+        security_code:340
+    }    
 ])
 
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

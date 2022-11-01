@@ -1,9 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+export let formError = {errors:["","","","","","","","","","","","","","","","","",""]};
+export let userData = null;
+
 // using redux to login user by retrieving their information from the database
 export const loginUser = createAsyncThunk("login/loginUser", async (user) => {
   try {
-    let request = await fetch("http://localhost:3000/login", {
+    let request = await fetch("/login", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -17,10 +20,13 @@ export const loginUser = createAsyncThunk("login/loginUser", async (user) => {
     let data = await request.json();
     console.log(request);
     if (request.ok) {
-      //  console.log(data, "yes");
+       console.log(data, "yes");
+      localStorage.setItem('user', JSON.stringify(data))
+      userData = data;
       return data;
     } else {
-      // console.log(data, "no");
+      console.log(data, "no");
+      formError = data;
       return data;
     }
   } catch (error) {

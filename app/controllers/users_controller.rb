@@ -10,9 +10,10 @@ class UsersController < ApplicationController
 
   # signup as a user
   def create
-    user = User.create!(user_params)
-    session[:user_id] = user.id
-    render json: user, status: :created
+    @user = User.create!(user_params)
+    EmailMailer.with(user: @user).new_mail.deliver_later
+    # session[:user_id] = user.id
+    render json: @user, status: :created
   end
 
   # show details of the current logged in user
