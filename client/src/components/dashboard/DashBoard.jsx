@@ -1,4 +1,4 @@
-import { useDispatch , useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { disableNavbar } from "../../features/toggle";
 import { Link } from "react-router-dom";
 
@@ -52,12 +52,13 @@ const DashBoard = () => {
             </div>
           </ul>
         </div>
-        <Link to="/">Logout
-        <button  onClick={handleLogoutClick} className="p-7 flex">
-        <i class='bx bx-exit bx-sm'></i>
-        <h3 className="px-2">Logout</h3>
-         </button>
-         </Link>
+        <Link to="/">
+          Logout
+          <button  className="p-7 flex">
+            <i class="bx bx-exit bx-sm"></i>
+            <h3 className="px-2">Logout</h3>
+          </button>
+        </Link>
       </div>
     </div>
   );

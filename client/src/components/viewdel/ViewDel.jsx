@@ -131,7 +131,7 @@ function ViewDel () {
               </div>
             </div>
             <button onClick={ handleDeleteClick } id={ parcel.id } className="delete-btn">Delete</button>
-            <Edit id={parcel.id} parcel={parcel} />
+            <Edit id={parcel.id} parcel={parcel}  />
           </div>
         </div>
       </div>
