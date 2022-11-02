@@ -26,7 +26,7 @@ function Deliveries() {
       //   await setUser(userRequestData);
       //   await dispatch(setCurrentUser(userRequestData));
       // }
-      let request = await fetch("http://localhost:3000/parcels");
+      let request = await fetch("/parcels");
       let data = await request.json();
       console.log(data);
       console.log(user.id);

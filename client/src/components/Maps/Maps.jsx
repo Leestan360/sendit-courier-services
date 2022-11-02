@@ -22,7 +22,7 @@ const Maps = () => {
   // };
 
   if(!isLoaded){
-    return <h2>Not loaded</h2>
+    return <h2>Loading...</h2>
   }
 
   return (
