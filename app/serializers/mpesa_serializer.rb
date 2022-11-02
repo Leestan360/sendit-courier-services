@@ -1,3 +1,3 @@
-class MpesaSerializer < ActiveModel::Serializer
-  attributes :id, :checkoutRequestID, :merchantRequestID, :amount, :mpesaReceiptNumber, :phoneNumber
-end
+# class MpesaSerializer < ActiveModel::Serializer
+#   attributes :id, :checkoutRequestID, :merchantRequestID, :amount, :mpesaReceiptNumber, :phoneNumber
+# end
