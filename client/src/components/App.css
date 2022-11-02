@@ -13,3 +13,19 @@
   .hideme{
     display:none;
   }
+
+  #delivery_location{
+    border: 1px solid red;
+  }
+
+  .btn{
+    background: lightblue;
+    padding: 5px;
+    margin-top: 4px;
+    border-radius: 5px;
+  }
+
+  .btn:hover{
+    background-color: black;
+    color: white;
+  }
