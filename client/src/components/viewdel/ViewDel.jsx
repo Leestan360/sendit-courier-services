@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from 'react-redux';
 import Edit from "../editItem/Edit";
-import { FaEdit } from 'react-icons/fa';
+// import { FaEdit } from 'react-icons/fa';
 import { useNavigate } from "react-router-dom";
 
 function ViewDel () {
