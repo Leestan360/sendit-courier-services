@@ -3,13 +3,14 @@ import { disableNavbar } from "../../features/toggle";
 import { Link } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
+import { logoutUser } from "../../features/logout";
 const DashBoard = () => {
   const dispatch = useDispatch();
 
-  // const handleLogoutClick = () => {
-  //   console.log("logout")
-  //   dispatch(logoutUser());
-  // };
+  const handleLogoutClick = () => {
+    console.log("logout")
+    dispatch(logoutUser());
+  };
   const handleDisableNavbar = () => {
     dispatch(disableNavbar());
   };

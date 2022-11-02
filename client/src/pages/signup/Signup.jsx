@@ -40,7 +40,7 @@ const Signup = () => {
     // console.log(signupState);
     console.log(!!signupState.id);
     if (!!signupState.id) {
-      navigate("/delivery");
+      navigate("/login");
     }
   }, [signupState]);
 
