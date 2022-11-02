@@ -1,14 +1,18 @@
-import { useDispatch } from "react-redux";
+import { useDispatch , useSelector } from "react-redux";
 import { disableNavbar } from "../../features/toggle";
 import { Link } from "react-router-dom";
 
+import { useNavigate } from "react-router-dom";
 const DashBoard = () => {
   const dispatch = useDispatch();
 
+  // const handleLogoutClick = () => {
+  //   console.log("logout")
+  //   dispatch(logoutUser());
+  // };
   const handleDisableNavbar = () => {
     dispatch(disableNavbar());
   };
-
   return (
     <div className="font-work bg-blue-900">
       <div className="border-transparent w-[300px] xsm:w-[200px] absolute z-10 bg-blue-900 shadow h-screen flex flex-col justify-between text-white">
@@ -47,10 +51,12 @@ const DashBoard = () => {
             </div>
           </ul>
         </div>
-        <div className="p-7 flex">
+        <Link to="/">Logout
+        <button  onClick={handleLogoutClick} className="p-7 flex">
         <i class='bx bx-exit bx-sm'></i>
         <h3 className="px-2">Logout</h3>
-        </div>
+         </button>
+         </Link>
       </div>
     </div>
   );

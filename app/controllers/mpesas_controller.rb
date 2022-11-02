@@ -2,6 +2,8 @@ class MpesasController < ApplicationController
   require 'rest-client'
   rescue_from SocketError, with: :OfflineMode
 
+  skip_before_action :authorize, only: [:index, :create, :show, :destroy, :update]
+
   def stkpush 
     phoneNumber = params[:phoneNumber]
     amount = params[:amount]
@@ -21,7 +23,7 @@ class MpesasController < ApplicationController
 			'PartyB': business_short_code,
 			'PhoneNumber': phoneNumber,
 			'CallBackURL': "#{ENV["CALLBACK_URL"]}/callback_url",
-			'AccountReference': 'Trial ROR Mpesa',
+			'AccountReference': 'Sent IT',
 			'TransactionDesc': "ROR trial"
     }.to_json
     

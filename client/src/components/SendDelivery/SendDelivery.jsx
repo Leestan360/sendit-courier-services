@@ -5,29 +5,36 @@ import { setOrder } from "../../features/order";
 import { setOrderList } from "../../features/orderList";
 import { setCurrentUser } from "../../features/currentUser";
 
-
 const SendDelivery = () => {
   const navigate = useNavigate();
-  const [ user, setUser ] = useState( {} );
+  const [user, setUser] = useState({});
 
   // const [ option, setOption ] = useState({})
   const option = useSelector((state) => state.orderList.value);
-  const { signupState } = useSelector( ( state ) => ( { ...state.signup } ) );
-  
-  useEffect( () => {
-    fetch( "/me" )
-      .then( ( r ) => r.json() )
-      .then( ( user ) => {
-        console.log( user );
-        setUser( user );
-        dispatch( setCurrentUser( user ) );
-      } );
-  }, [] );
+  const { signupState } = useSelector((state) => ({ ...state.signup }));
+
+  useEffect(() => {
+    const fetchUser = async ()=>{
+     let fetchedUser = await fetch("/me")
+     let fetched = await fetchedUser.json()
+     if(fetchedUser.ok){
+       setUser(fetched);
+       dispatch(setCurrentUser(fetched));
+       console.log(fetched);
+       return fetched;
+     }
+     else{
+       console.log(fetched)
+       return fetched;
+     }
+    }
+    fetchUser()
+   }, []);
 
   const handleNavigate = () => {
     navigate("/location");
   };
-  
+
   const dispatch = useDispatch();
   const { orderState, loading, error } = useSelector((state) => ({
     ...state.order,
@@ -45,15 +52,15 @@ const SendDelivery = () => {
     dispatch(setOrderList({}));
   };
 
-    //fetches user data stored in redux state
-    // useEffect(()=>{
-    //   console.log(signupState);
-    //   console.log(!!signupState.id);
-    //   if(signupState.id){
-        
-    //   }
-    //   console.log(error);
-    // },[])
+  //fetches user data stored in redux state
+  // useEffect(()=>{
+  //   console.log(signupState);
+  //   console.log(!!signupState.id);
+  //   if(signupState.id){
+
+  //   }
+  //   console.log(error);
+  // },[])
 
   return (
     <div className="bg-gray-100 w-[100%] text-slate-900">

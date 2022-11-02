@@ -9,7 +9,7 @@ import MyDeliveries from "../pages/myDeliveries/MyDeliveries";
 import ViewDelivery from "../pages/viewDelivery/ViewDelivery";
 import Login from "../pages/login/Login";
 import Signup from "../pages/signup/Signup";
-
+import Logout from "../features/logout"
 function App() {
   return (
     <div className="App">
@@ -23,6 +23,7 @@ function App() {
           <Route path="/viewdelivery" element={<ViewDelivery />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/Logout" element={<Logout />} />
         </Routes>
       </Router>
     </div>
