@@ -29,7 +29,6 @@ export const createPost = createAsyncThunk(
       console.log(request);
       if (request.ok) {
         console.log(data, "yes");
-        localStorage.setItem('user', JSON.stringify(data))
         userData = data;
         return data;
       } else {

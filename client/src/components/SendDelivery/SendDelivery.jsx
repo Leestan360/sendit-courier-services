@@ -1,19 +1,40 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setOrder } from "../../features/order";
 import { setOrderList } from "../../features/orderList";
+import { setCurrentUser } from "../../features/currentUser";
 
 const SendDelivery = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState({});
+
   // const [ option, setOption ] = useState({})
   const option = useSelector((state) => state.orderList.value);
   const { signupState } = useSelector((state) => ({ ...state.signup }));
 
+  useEffect(() => {
+    const fetchUser = async ()=>{
+     let fetchedUser = await fetch("/me")
+     let fetched = await fetchedUser.json()
+     if(fetchedUser.ok){
+       setUser(fetched);
+       dispatch(setCurrentUser(fetched));
+       console.log(fetched);
+       return fetched;
+     }
+     else{
+       console.log(fetched)
+       return fetched;
+     }
+    }
+    fetchUser()
+   }, []);
+
   const handleNavigate = () => {
     navigate("/location");
   };
-  
+
   const dispatch = useDispatch();
   const { orderState, loading, error } = useSelector((state) => ({
     ...state.order,
@@ -22,7 +43,7 @@ const SendDelivery = () => {
   const handleInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    dispatch(setOrderList({ ...option, [name]: value, user_id:JSON.parse(localStorage.getItem("user")).id }));
+    dispatch(setOrderList({ ...option, [name]: value, user_id: user.id }));
     // setOption({ ...option, [name]:value});
     console.log(option);
   };
@@ -31,15 +52,15 @@ const SendDelivery = () => {
     dispatch(setOrderList({}));
   };
 
-    //fetches user data stored in redux state
-    // useEffect(()=>{
-    //   console.log(signupState);
-    //   console.log(!!signupState.id);
-    //   if(signupState.id){
-        
-    //   }
-    //   console.log(error);
-    // },[])
+  //fetches user data stored in redux state
+  // useEffect(()=>{
+  //   console.log(signupState);
+  //   console.log(!!signupState.id);
+  //   if(signupState.id){
+
+  //   }
+  //   console.log(error);
+  // },[])
 
   return (
     <div className="bg-gray-100 w-[100%] text-slate-900">
