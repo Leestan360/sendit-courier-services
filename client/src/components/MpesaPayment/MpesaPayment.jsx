@@ -1,48 +1,25 @@
-import { setOrderList } from "../../features/orderList";
-import { setOrder } from "../../features/order";
-import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const MpesaPayment = ({ choose }) => {
-  const [number, setNumber] = useState(null);
-  const dispatch = useDispatch();
-  const option = useSelector((state) => state.orderList.value);
+  const [number, setNumber] = useState("");
 
-  const handleInput = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    console.log({[name]:value});
-    setNumber({ [name]: value });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch(setOrderList({ ...option }));
-    console.log(option);
-    dispatch(setOrder({ ...option }));
-    const mpesaPay = async () => {
-      let request = await fetch(
-        "/stkpush",
-        {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({
-            phoneNumber: number,
-            amount: 100,
-          }),
-        }
-      );
-      console.log(request);
-      let response = await request.json();
-      console.log(request.ok);
-      if (request.ok) {
-        return response;
-      }
-    };
-    mpesaPay();
-  };
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("/stkpush", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        phoneNumber: number,
+        amount: 100,
+      }),
+    })
+    .then(res => res.json())
+    .then(data => {
+      // console.log(data);
+    })
+  }
 
   return (
     <div style={choose ? { display: "block" } : { display: "none" }}>
@@ -53,7 +30,7 @@ const MpesaPayment = ({ choose }) => {
         <input
           type="text"
           name="number"
-          onChange={handleInput}
+          onChange={(e) => setNumber(e.target.value)}
           className="border rounded max-w-[400px] mx-2 my-1 p-2 outline-none border-slate-800"
         />
       </div>
