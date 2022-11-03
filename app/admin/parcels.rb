@@ -5,7 +5,7 @@ ActiveAdmin.register Parcel do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :weight, :length, :width, :category_type, :perishabile, :fragility
+  permit_params :weight, :length, :width, :category_type, :perishabile, :fragility, :status
   #
   # or
   #

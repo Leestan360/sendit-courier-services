@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { setCurrentUser } from "../../features/currentUser";
 import { setOrder } from "../../features/order";
 import { setOrderList } from "../../features/orderList";
-import { setCurrentUser } from "../../features/currentUser";
 
 const SendDelivery = () => {
   const navigate = useNavigate();
@@ -44,7 +44,6 @@ const SendDelivery = () => {
     const name = event.target.name;
     const value = event.target.value;
     dispatch(setOrderList({ ...option, [name]: value, user_id: user.id }));
-    // setOption({ ...option, [name]:value});
     console.log(option);
   };
 

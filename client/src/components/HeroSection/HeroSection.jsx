@@ -18,7 +18,7 @@ const HeroSection = () => {
       className="overflow-hidden  w-[100%] items-center justify-start shadow-md  text-white"
       style={{ background: "#2B4263" }}
     >
-      <div className="flex justify-between shadow-lg p-1">
+      <div className="flex justify-between shadow-lg p-3">
         <h1 className="text-[34px] text-4xl font-bold">SendIT</h1>
         <div className="flex flex-col xsm:flex-row text-xl font-bold">
           <button
@@ -38,7 +38,7 @@ const HeroSection = () => {
       <div className="flex flex-col lg:flex-row  w-[100%] items-center justify-around shadow-md font-poppins ">
         <div className="lg:max-w-[450px]  w-[100%] p-5 ">
           <div>
-            <h2 className="font-extrabold text-5xl mb-[20px]">
+            <h2 className="font-extrabold text-5xl mb-[20px] scale-100">
               SendIT Courier Service
             </h2>
             <img src={plane} alt="" className=" hidden lg:block absolute top-24 left-0 lg:left-32 max-w-[500px] w-[100%] " />

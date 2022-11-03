@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import DeliveryDetails from "./DeliveryDetails";
 import { setCurrentUser } from "../../features/currentUser";
 import messenger from './Messenger-pana.svg'
+import { useNavigate } from "react-router-dom";
 
 function Deliveries() {
   const [posts, setPosts] = useState([]);
@@ -11,6 +12,7 @@ function Deliveries() {
   const [ hasPosts, setHasPosts ] = useState(false);
   // const user = JSON.parse(localStorage.getItem("user"))
   const currentUser = useSelector((state) => ({ ...state.currentUser.value }));
+  const navigate = useNavigate()
 
   const { signupState } = useSelector((state) => ({ ...state.signup }));
   const { loginState } = useSelector((state) => ({
@@ -27,6 +29,9 @@ function Deliveries() {
       // if(userRequest.ok){
       //   await setUser(userRequestData);
       //   await dispatch(setCurrentUser(userRequestData));
+      // }
+      // if(!!currentUser){
+      //   navigate("/")
       // }
       let request = await fetch("/parcels");
       let data = await request.json();

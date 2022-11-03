@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // using redux to login user by retrieving their information from the database
-export const logoutUser = createAsyncThunk("logout/logoutUser", async (user) => {
+export const logoutUser = createAsyncThunk("logout/logoutUser", async () => {
   try {
     let request = await fetch("/logout", {
         method: "DELETE",

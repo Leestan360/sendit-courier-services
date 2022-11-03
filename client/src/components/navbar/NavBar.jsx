@@ -39,7 +39,7 @@ const NavBar = () => {
   }, []);
 
   return (
-    <div className="flex justify-between items-center text-slate-800 shadow-lg p-2">
+    <div className="flex justify-between items-center text-slate-800 shadow-lg p-4">
       <div className="flex items-center">
         <i
           class="bx bx-menu bx-md mx-2"

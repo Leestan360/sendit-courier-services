@@ -2,6 +2,7 @@ class MpesasController < ApplicationController
   require 'rest-client'
   rescue_from SocketError, with: :OfflineMode
 
+  before_action :authorize
   skip_before_action :authorize, only: [:stkpush, :polling_payment]
 
   def stkpush 
@@ -131,5 +132,16 @@ class MpesasController < ApplicationController
   def OfflineMode
     render json: { errors: ['Connect to the Internet'] }
   end 
+
+    # authorizing a user
+    def authorize
+      @current_user = User.find_by(id: session[:user_id])
+      # render json: { errors: ["Not authorized"] }, status: :unauthorized unless @current_user
+      if @current_user
+        render json: @current_user
+      else
+        render json: { errors: ["Not authorized"] }, status: :unauthorized
+      end
+    end
 
 end
