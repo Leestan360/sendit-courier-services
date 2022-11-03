@@ -2,6 +2,7 @@ import { setOrderList } from "../../features/orderList";
 import { setOrder } from "../../features/order";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CardInfo = ({ choose }) => {
 
@@ -12,6 +13,7 @@ const CardInfo = ({ choose }) => {
   const { loginState } = useSelector((state) => ({
     ...state.login,
   }));
+  const navigate = useNavigate()
 
 
   
@@ -29,7 +31,7 @@ const CardInfo = ({ choose }) => {
     dispatch(setOrderList({  ...option}))
     console.log(option);
     dispatch(setOrder({ ...option}));
-    
+    navigate("/mydeliveries")
   };
 
   //fetches user data stored in redux state
