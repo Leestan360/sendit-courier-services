@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
-  skip_before_action :authorize, only: :create
+  before_action :authorize
+  skip_before_action :authorize, only: [:create]
 
   # login a user
   def create
@@ -22,5 +23,16 @@ class SessionsController < ApplicationController
       render json: {errors: ["You must be logged in to access this content"] }, status: :unauthorized
     end
   end
+
+    # authorizing a user
+    def authorize
+      @current_user = User.find_by(id: session[:user_id])
+      # render json: { errors: ["Not authorized"] }, status: :unauthorized unless @current_user
+      if @current_user
+        render json: @current_user
+      else
+        render json: { errors: ["Not authorized"] }, status: :unauthorized
+      end
+    end
 
 end

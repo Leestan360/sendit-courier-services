@@ -12,7 +12,7 @@ const Login = () => {
   const { loginState, loading, error } = useSelector((state) => ({
     ...state.login,
   }));
-  console.log(formError);
+  // console.log(formError);
 
   //navigate to signup
   const handleNavigateSignup = () => {
@@ -24,32 +24,25 @@ const Login = () => {
     const name = event.target.name;
     const value = event.target.value;
     setUser({ ...user, [name]: value.toLowerCase() });
-    console.log(user);
+    // console.log(user);
   };
 
   //submit userdata to database
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(user);
+    // console.log(user);
     dispatch(loginUser(user));
-    console.log(userData);
-    // if(!!userData){
-    //   navigate("/delivery");
-    // }
-    // setData(loginState);
-    // console.log(loginState);
-    // console.log(data);
-    // console.log(loading);
+    // console.log(userData);
   };
 
   //fetches user data stored in redux state
   useEffect(() => {
     if (!!loginState.id) {
-      console.log(loginState.id);
-      console.log(loginState);
+      // console.log(loginState.id);
+      // console.log(loginState);
       navigate("/delivery");
     }
-    console.log(error);
+    // console.log(error);
   }, [userData]);
 
 
@@ -68,18 +61,18 @@ const Login = () => {
             >
               Login to your account
             </p>
-            <p
+            <h3
               tabIndex={0}
               className="focus:outline-none text-sm mt-4 font-medium leading-none text-gray-500 flex"
             >
               Don't have an account?
-              <h3
+              <p
                 onClick={handleNavigateSignup}
                 className="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none text-gray-800 cursor-pointer ml-2"
               >
                 Signup here
-              </h3>
-            </p>
+              </p>
+            </h3>
             <form
               onSubmit={handleSubmit}
               className="xxs:w-[250px] xsm:w-[400px] sm:w-[500px] md:w-[600px] lg:w-[300px] mt-5"

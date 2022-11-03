@@ -20,6 +20,9 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem "rack-cors"
 
+# rest-client
+gem 'rest-client', '~> 2.0'
+
 # Serializer
 gem "active_model_serializers", "~> 0.10.12"
 
@@ -28,6 +31,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 # https://github.com/activeadmin/activeadmin/issues/7196
 gem 'activeadmin'
+
+gem "binding_of_caller"
 
 # Required for ActiveAdmin
 gem 'sass-rails'

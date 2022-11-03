@@ -37,7 +37,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -55,6 +55,7 @@ Rails.application.configure do
 
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
+  config.hosts << /[a-z0-9-.]+\.ngrok\.io/
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
@@ -67,4 +68,23 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :letter_opener
+
+  config.hosts << 'localhost:4000' #replace with your own url
+  # config.action_mailer.default_url_options = { :host => host }
+  config.action_mailer.delivery_method = :smtp
+
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :domain               => "localhost:4000",
+    :port                 => 587,
+    :user_name            => Rails.application.credentials.dig(:google_smtp, :email),
+    :password             => Rails.application.credentials.dig(:google_smtp, :password),
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
+
 end

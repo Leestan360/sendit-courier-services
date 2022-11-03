@@ -1,19 +1,40 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { setCurrentUser } from "../../features/currentUser";
 import { setOrder } from "../../features/order";
 import { setOrderList } from "../../features/orderList";
 
 const SendDelivery = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState({});
+
   // const [ option, setOption ] = useState({})
   const option = useSelector((state) => state.orderList.value);
   const { signupState } = useSelector((state) => ({ ...state.signup }));
 
+  useEffect(() => {
+    const fetchUser = async ()=>{
+     let fetchedUser = await fetch("/me")
+     let fetched = await fetchedUser.json()
+     if(fetchedUser.ok){
+       setUser(fetched);
+       dispatch(setCurrentUser(fetched));
+      //  console.log(fetched);
+       return fetched;
+     }
+     else{
+      //  console.log(fetched)
+       return fetched;
+     }
+    }
+    fetchUser()
+   }, []);
+
   const handleNavigate = () => {
     navigate("/location");
   };
-  
+
   const dispatch = useDispatch();
   const { orderState, loading, error } = useSelector((state) => ({
     ...state.order,
@@ -22,24 +43,13 @@ const SendDelivery = () => {
   const handleInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    dispatch(setOrderList({ ...option, [name]: value, user_id:JSON.parse(localStorage.getItem("user")).id }));
-    // setOption({ ...option, [name]:value});
-    console.log(option);
+    dispatch(setOrderList({ ...option, [name]: value, user_id: user.id }));
+    // console.log(option);
   };
 
   const handleCancel = () => {
     dispatch(setOrderList({}));
   };
-
-    //fetches user data stored in redux state
-    // useEffect(()=>{
-    //   console.log(signupState);
-    //   console.log(!!signupState.id);
-    //   if(signupState.id){
-        
-    //   }
-    //   console.log(error);
-    // },[])
 
   return (
     <div className="bg-gray-100 w-[100%] text-slate-900">
@@ -80,9 +90,13 @@ const SendDelivery = () => {
                   className="font-jost bg-gray-100 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2 outline-none "
                 >
                   <option value="null">-- Choose Category --</option>
+                  <option value="Clothings">Clothings</option>
+                  <option value="Computing">Computing</option>
+                  <option value="Cosmetics">Cosmetics</option>
+                  <option value="Drinks">Drinks</option>
                   <option value="Electronics">Electronics</option>
-                  <option value="Clothing">Clothing</option>
-                  <option value="Paint">Paint</option>
+                  <option value="Fashions">Fashions</option>
+                  <option value="Gaming">Gaming</option>
                 </select>
               </div>
               <div className="flex flex-col  md:max-w-[320px] md:w-[100%] mx-2">
