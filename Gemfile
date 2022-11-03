@@ -32,6 +32,8 @@ gem 'bcrypt', '~> 3.1.7'
 # https://github.com/activeadmin/activeadmin/issues/7196
 gem 'activeadmin'
 
+gem "binding_of_caller"
+
 # Required for ActiveAdmin
 gem 'sass-rails'
 
