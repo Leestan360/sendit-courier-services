@@ -3,10 +3,12 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DeliveryDetails from "./DeliveryDetails";
 import { setCurrentUser } from "../../features/currentUser";
+import messenger from './Messenger-pana.svg'
 
 function Deliveries() {
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
+  const [ hasPosts, setHasPosts ] = useState(false);
   // const user = JSON.parse(localStorage.getItem("user"))
   const currentUser = useSelector((state) => ({ ...state.currentUser.value }));
 
@@ -29,6 +31,9 @@ function Deliveries() {
       let request = await fetch("/parcels");
       let data = await request.json();
       console.log(data);
+      if(request.ok){
+        setHasPosts(true);
+      }
       console.log(user.id);
       const filter = await data.filter((parcel) => {
         return parcel.user.id === currentUser.id;
@@ -52,7 +57,9 @@ function Deliveries() {
           fragile={items.fragility}
           perishable={items.perishable}
         />
-      ))}
+      ))
+      // <img src={messenger} alt="" />
+      }
     </div>
   );
 }
