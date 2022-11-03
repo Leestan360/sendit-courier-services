@@ -22,7 +22,7 @@ const MpesaPayment = ({ choose }) => {
     dispatch(setOrder({ ...option }));
     const mpesaPay = async () => {
       let request = await fetch(
-        "http://2517-154-152-171-184.ngrok.io/stkpush",
+        "/stkpush",
         {
           method: "POST",
           headers: {
@@ -38,6 +38,7 @@ const MpesaPayment = ({ choose }) => {
       let response = await request.json();
       console.log(request.ok);
       if (request.ok) {
+        return response;
       }
     };
     mpesaPay();
