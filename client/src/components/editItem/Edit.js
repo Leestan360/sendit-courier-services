@@ -5,20 +5,10 @@ function Edit({ id, parcel, setLocation }) {
   const [isLoading, setIsLoading] = useState(false);
   const [newLocation, setNewLocation] = useState({});
 
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     let request = await fetch(`/parcels/${id}`);
-  //     let data = await request.json();
-  //     console.log(data);
-  //     setLocation(data);
-  //   };
-  //   getData();
-  // }, [id]);
-
   const handleInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    console.log(value);
+    // console.log(value);
     setNewLocation(value);
   };
 
@@ -28,7 +18,7 @@ function Edit({ id, parcel, setLocation }) {
 
   function handleUpdateClick(e) {
     e.preventDefault();
-    console.log(id);
+    // console.log(id);
     let url = `/parcels/${id}`;
     fetch(url, {
       method: "PATCH",
@@ -41,39 +31,10 @@ function Edit({ id, parcel, setLocation }) {
     })
       .then((r) => r.json())
       .then((updateObj) => {
-        console.log(updateObj);
+        // console.log(updateObj);
         handleUpdate(updateObj.delivery_location);
       });
   }
-
-  // const handleSubmit = ( e ) => {
-  //     e.preventDefault();
-  //     updateProduct();
-  // };
-
-  // const updateProduct = () => {
-  //     fetch( url, {
-  //         method: 'PATCH',
-  //         headers: {
-  //             'Content-Type': 'application/json',
-  //         },
-  //         body: JSON.stringify( {
-  //             location: location.delivery_location,
-  //         } ),
-  //     } )
-  //         .then( ( res ) => res.json() )
-  //         .then( ( location ) => {
-  //             setIsLoading(false)
-  //             setLocation( location );
-  //         } )
-  //         .catch( ( err ) => console.log( 'error: ', err ) );
-
-  // };
-
-  // function handleChange ( e ) {
-  //     console.log( e.target.value );
-  //     setLocation( { ...location, [ e.target.name ]: e.target.value } );
-  // }
 
   return (
     <div id="hide-card" className="mt-[30px]">

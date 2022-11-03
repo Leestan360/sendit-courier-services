@@ -22,19 +22,18 @@ const HeroSection = () => {
         <h1 className="text-[34px] text-4xl font-bold">SendIT</h1>
         <div className="flex flex-col xsm:flex-row text-xl font-bold">
           <button
-            className="active:border-2 active:bg-white active:text-blue-800 mr-2 border-2 border-white px-4 rounded-full font-open"
-            // onClick={ handleNavigateAdmin }
+            className="active:border-2 text-base active:bg-white active:text-blue-800 mr-2 border-2 border-white px-3 rounded-full font-open hover:bg-white hover:text-blue-900"
           >
             <a href="http://localhost:3000/admin">Admin</a>
           </button>
           <button
-            className="active:border-2 active:bg-white active:text-blue-800 mr-2 border-2 border-white px-4 rounded-full font-open"
+            className="active:border-2 active:bg-white active:text-blue-800 mr-2 border-2 border-white px-3 rounded-full font-open text-base hover:bg-white hover:text-blue-900"
             onClick={handleNavigateLogin}
           >
             Login
           </button>
           <button
-            className="hover:border-2 bg-white text-blue-900 border-2 border-white px-4 shadow-lg rounded-full font-open"
+            className="hover:border-2 bg-white text-blue-900 border-2 border-white px-3 shadow-lg rounded-full font-open text-base hover:bg-white hover:text-blue-900"
             onClick={handleNavigateSignup}
           >
             Signup
@@ -53,8 +52,8 @@ const HeroSection = () => {
             SendIT is a courier service that helps users deliver<br></br>parcels
             to different destinations.
           </p>
-          <button className="py-2 px-1 rounded-lg text-blue-900 bg-white font-poppins font-bold max-w-[160px] w-[100%] text-xl flex items-center justify-around hover:text-white hover:bg-sky-900">
-            Get Started <i class="fa-solid fa-paper-plane text-blue-900"></i>
+          <button className="py-2 px-1 rounded-lg text-blue-900 bg-white font-poppins max-w-[160px] w-[100%] text-xl flex items-center justify-around hover:bg-gray-200">
+            Get Started <i className="fa-solid fa-paper-plane text-blue-900"></i>
           </button>
         </div>
         <div className="md:max-w-[700px] lg:min-w-[700px] w-[100%] lg:min-h-[500px] h-[100%] ">

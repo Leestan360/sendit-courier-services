@@ -14,7 +14,7 @@ export const logoutUser = createAsyncThunk("logout/logoutUser", async () => {
         
       });
     let data = await request.json();
-    console.log(request);
+    // console.log(request);
     if (request.ok) {
       //  console.log(data, "yes");
       return data;
@@ -23,7 +23,7 @@ export const logoutUser = createAsyncThunk("logout/logoutUser", async () => {
       return data;
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 });
 

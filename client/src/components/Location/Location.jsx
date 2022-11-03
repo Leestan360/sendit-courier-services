@@ -49,12 +49,12 @@ const Location = () => {
       destination: destinationRef.current.value,
       travelMode: google.maps.TravelMode.DRIVING
     })
-    console.log(results);
+    // console.log(results);
     setDirection(results);
     setPickup(results['request']['origin']['query'])
-    console.log(results['request']['origin']['query']);
+    // console.log(results['request']['origin']['query']);
     setDropoff(results['request']['destination']['query'])
-    console.log(results['request']['destination']['query']);
+    // console.log(results['request']['destination']['query']);
     setDistance(results.routes[0].legs[0].distance.text)
     setDuration(results.routes[0].legs[0].duration.text)
   }
@@ -87,13 +87,13 @@ const Location = () => {
 
   const handlePickup = () =>{
     const name = event.target.name;
-    console.log(option);
+    // console.log(option);
   }
 
   const handleDropoff = () =>{
     const name = event.target.name;
     // dispatch(setOrderList({ ...option, [name]: dropoff}));
-    console.log(option);
+    // console.log(option);
   }
 
   return (

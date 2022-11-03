@@ -36,11 +36,11 @@ const Payment = () => {
           <hr className="my-2 border" />
           <div className="flex items-center mt-5">
             <button onClick={handleChoosePayment} className="px-3 p-2 border-2 font-open rounded-lg flex items-center text-blue-800 border-blue-800 hover:bg-blue-800 hover:text-white">
-              <i class="bx bxs-credit-card bx-sm mx-1"></i>Debit Card
+              <i className="bx bxs-credit-card bx-sm mx-1"></i>Debit Card
             </button>
             <h2 className="mx-3">OR</h2>
             <button onClick={handleChoosePayment} className="px-3 p-2 border-2 font-open rounded-lg flex items-center text-blue-800 border-blue-800 hover:bg-blue-800 hover:text-white">
-              <i class="bx bxs-mobile bx-sm"></i>MPesa Payment
+              <i className="bx bxs-mobile bx-sm"></i>MPesa Payment
             </button>
           </div>
           <h3 className="text-md font-bold font-work mt-10">

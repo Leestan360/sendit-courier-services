@@ -35,23 +35,23 @@ function Deliveries() {
       // }
       let request = await fetch("/parcels");
       let data = await request.json();
-      console.log(data);
+      // console.log(data);
       if(request.ok){
         setHasPosts(true);
       }
-      console.log(user.id);
+      // console.log(user.id);
       const filter = await data.filter((parcel) => {
         return parcel.user.id === currentUser.id;
       });
       await setPosts(filter); 
-      await console.log(filter);
+      // await console.log(filter);
     };
     getData();
   }, [user.id]);
 
   return (
     <div className="grid gap-2 lg:grid-cols-3 bg-indigo-50 min-h-screen p-5 w-full ">
-      {posts.map((items, key) => (
+      {posts.map((items, index) => (
         <DeliveryDetails
           category={items.category_type}
           pickup={items.pickup_location}

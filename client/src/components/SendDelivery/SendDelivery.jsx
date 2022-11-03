@@ -20,11 +20,11 @@ const SendDelivery = () => {
      if(fetchedUser.ok){
        setUser(fetched);
        dispatch(setCurrentUser(fetched));
-       console.log(fetched);
+      //  console.log(fetched);
        return fetched;
      }
      else{
-       console.log(fetched)
+      //  console.log(fetched)
        return fetched;
      }
     }
@@ -44,22 +44,12 @@ const SendDelivery = () => {
     const name = event.target.name;
     const value = event.target.value;
     dispatch(setOrderList({ ...option, [name]: value, user_id: user.id }));
-    console.log(option);
+    // console.log(option);
   };
 
   const handleCancel = () => {
     dispatch(setOrderList({}));
   };
-
-  //fetches user data stored in redux state
-  // useEffect(()=>{
-  //   console.log(signupState);
-  //   console.log(!!signupState.id);
-  //   if(signupState.id){
-
-  //   }
-  //   console.log(error);
-  // },[])
 
   return (
     <div className="bg-gray-100 w-[100%] text-slate-900">

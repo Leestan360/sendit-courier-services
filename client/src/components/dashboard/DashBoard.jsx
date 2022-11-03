@@ -10,17 +10,17 @@ const DashBoard = () => {
   const navigate = useNavigate();
 
   const handleLogoutClick = () => {
-    console.log("logout")
+    // console.log("logout");
     dispatch(logoutUser());
-    dispatch(setCurrentUser(null))
-    navigate("/")
+    dispatch(setCurrentUser(null));
+    navigate("/");
     // dispatch(disableNavbar());
   };
   const handleDisableNavbar = () => {
     dispatch(disableNavbar());
   };
   return (
-    <div className="font-work bg-blue-900">
+    <div className="font-work bg-blue-900 h-full">
       <div className="border-transparent w-[300px] xsm:w-[200px] relative z-10 bg-blue-900 shadow h-screen flex flex-col justify-between text-white">
         <div>
           <ul className="mt-6 flex flex-col ">
@@ -29,7 +29,7 @@ const DashBoard = () => {
               // onClick={handleDisableNavbar}
             >
               <Link to={"/"} className="flex">
-                <i class="bx bx-home-alt bx-sm mx-2"></i>
+                <i className="bx bx-home-alt bx-sm mx-2"></i>
                 <li className="flex  text-base">Home</li>
               </Link>
             </div>
@@ -38,7 +38,7 @@ const DashBoard = () => {
               // onClick={handleDisableNavbar}
             >
               <Link to={"/delivery"} className="flex">
-                <i class="bx bx-trip bx-sm mx-2"></i>
+                <i className="bx bx-trip bx-sm mx-2"></i>
                 <li className="flex cursor-pointer  text-base">
                   Send Delivery
                 </li>
@@ -49,20 +49,22 @@ const DashBoard = () => {
               // onClick={handleDisableNavbar}
             >
               <Link to={"/mydeliveries"} className="flex">
-                <i class="bx bx-package bx-sm mx-2"></i>
+                <i className="bx bx-package bx-sm mx-2"></i>
                 <li className="flex cursor-pointer  text-base">
                   My Deliveries
                 </li>
               </Link>
             </div>
+            <div className="mt-[200px]">
+              <Link to="/">
+                <button onClick={handleLogoutClick} className="p-7 flex">
+                  <i className="bx bx-exit bx-sm"></i>
+                  <h3 className="px-2">Logout</h3>
+                </button>
+              </Link>
+            </div>
           </ul>
         </div>
-        <Link to="/">
-          <button onClick={handleLogoutClick}  className="p-7 flex">
-            <i class="bx bx-exit bx-sm"></i>
-            <h3 className="px-2">Logout</h3>
-          </button>
-        </Link>
       </div>
     </div>
   );

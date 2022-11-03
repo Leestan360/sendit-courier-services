@@ -16,7 +16,7 @@ function ViewDel() {
     const getData = async () => {
       let request = await fetch(`/parcels/${id}`);
       let data = await request.json();
-      console.log(data);
+      // console.log(data);
       setParcel(data);
       setLocation(data.delivery_location);
     };
@@ -50,7 +50,7 @@ function ViewDel() {
         <div className="bg-white  w-[100%] shadow-lg p-1 rounded-md">
           <div className="flex p-5">
             <div className="p-2 text-blue-500 bg-indigo-50 rounded-full mr-3 w-[55px] h-[55px]">
-              <i class="bx bx-list-ul bx-md"></i>
+              <i className="bx bx-list-ul bx-md"></i>
             </div>
             <div>
               <h3 className="text-2xl font-jost">ID: {num1}</h3>
@@ -67,7 +67,7 @@ function ViewDel() {
             <div className="flex flex-col justify-around md:flex-row">
               <div className="flex justify-around py-4 bg-indigo-50 max-w-[300px] w-[100%] rounded-lg m-1 ">
                 <div className="p-2 text-blue-500 bg-indigo-100 rounded-full mr-3 w-[55px] h-[55px]">
-                  <i class="bx bx-list-ul bx-md"></i>
+                  <i className="bx bx-list-ul bx-md"></i>
                 </div>
                 <div>
                   <h3 className="text-base font-work font-extrabold">Weight</h3>
@@ -79,7 +79,7 @@ function ViewDel() {
               </div>
               <div className="flex justify-around py-4 bg-indigo-50 max-w-[300px] w-[100%] rounded-lg m-1 ">
                 <div className="p-2 text-blue-500 bg-indigo-100 rounded-full mr-3 w-[55px] h-[55px]">
-                  <i class="bx bxs-category bx-md"></i>
+                  <i className="bx bxs-category bx-md"></i>
                 </div>
                 <div>
                   <h3 className="text-base font-work font-extrabold">
@@ -94,7 +94,7 @@ function ViewDel() {
               </div>
               <div className="flex justify-around py-4 bg-indigo-50 max-w-[300px] w-[100%] rounded-lg m-1">
                 <div className="p-2 text-blue-500 bg-indigo-100 rounded-full mr-3 w-[55px] h-[55px] flex justify-around items-center ">
-                  <i class="fa-solid fa-scale-unbalanced-flip fa-xl"></i>
+                  <i className="fa-solid fa-scale-unbalanced-flip fa-xl"></i>
                 </div>
                 <div>
                   <h3 className="text-base font-work font-extrabold">
@@ -111,7 +111,7 @@ function ViewDel() {
             <div className="flex flex-col justify-around md:flex-row mt-4">
               <div className="flex justify-around py-4 bg-indigo-50 max-w-[300px] w-[100%] rounded-lg m-1 ">
                 <div className="p-2 text-blue-500 bg-indigo-100 rounded-full mr-3 w-[55px] h-[55px]  flex justify-around items-center ">
-                  <i class="fa-sharp fa-solid fa-location-dot fa-xl"></i>
+                  <i className="fa-sharp fa-solid fa-location-dot fa-xl"></i>
                 </div>
                 <div>
                   <h3 className="text-base font-work font-extrabold">
@@ -127,7 +127,7 @@ function ViewDel() {
               </div>
               <div className="flex justify-around py-4 bg-indigo-50 max-w-[300px] w-[100%] rounded-lg m-1 ">
                 <div className="p-2 text-blue-500 bg-indigo-100 rounded-full mr-3 w-[55px] h-[55px]  flex justify-around  items-center">
-                  <i class="fa-solid fa-location-crosshairs fa-xl"></i>
+                  <i className="fa-solid fa-location-crosshairs fa-xl"></i>
                 </div>
                 <div>
                   <h3 className="text-base font-work font-extrabold">
@@ -140,7 +140,7 @@ function ViewDel() {
               </div>
               <div className="flex justify-around py-4 bg-indigo-50 max-w-[300px] w-[100%] rounded-lg m-1">
                 <div className="p-2 text-blue-500 bg-indigo-100 rounded-full mr-3 w-[55px] h-[55px] flex justify-around ">
-                  <i class="bx bxs-time bx-md"></i>
+                  <i className="bx bxs-time bx-md"></i>
                 </div>
                 <div>
                   <h3 className="text-base font-work font-extrabold">

@@ -25,16 +25,16 @@ export const setOrder = createAsyncThunk("order/setOrder", async (order) => {
         }),
       });
     let data = await request.json();
-    console.log(request);
+    // console.log(request);
     if (request.ok) {
-       console.log(data, "yes");
+      //  console.log(data, "yes");
       return data;
     } else {
-      console.log(data, "no");
+      // console.log(data, "no");
       return data;
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 });
 

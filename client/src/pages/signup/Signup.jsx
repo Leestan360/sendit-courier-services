@@ -23,7 +23,7 @@ const Signup = () => {
     const name = event.target.name;
     const value = event.target.value;
     setUser({ ...user, [name]: value.toLowerCase() });
-    console.log(user);
+    // console.log(user);
   };
 
   //submit userdata to database
@@ -38,7 +38,7 @@ const Signup = () => {
   //fetches user data stored in redux state
   useEffect(() => {
     // console.log(signupState);
-    console.log(!!signupState.id);
+    // console.log(!!signupState.id);
     if (!!signupState.id) {
       navigate("/login");
     }

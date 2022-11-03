@@ -12,29 +12,12 @@ const Maps = () => {
     googleMapsApiKey:"AIzaSyB2Ect31W8zHuQ76j4WRnQkQCEzWTLmlcU"
   })
 
-
-  // const defaultProps = {
-  //   center: {
-  //     lat: -1.283441,
-  //     lng: 36.814386,
-  //   },
-  //   zoom: 12,
-  // };
-
   if(!isLoaded){
     return <h2>Loading...</h2>
   }
 
   return (
     <div className="max-w-[1400px] w-[100%] h-[500px]">
-      {/* <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyB2Ect31W8zHuQ76j4WRnQkQCEzWTLmlcU" }}
-        defaultCenter={defaultProps.center}
-        defaultZoom={defaultProps.zoom}
-        yesIWantToUseGoogleMapApiInternals
-      >
-        <LocationPin lat={-1.283441} lng={36.814386} text="My Marker" />
-      </GoogleMapReact> */}
       <GoogleMap
       center={center}
       zoom={15}

@@ -18,18 +18,18 @@ export const loginUser = createAsyncThunk("login/loginUser", async (user) => {
         }),
       });
     let data = await request.json();
-    console.log(request);
+    // console.log(request);
     if (request.ok) {
-       console.log(data, "yes");
+      //  console.log(data, "yes");
       userData = data;
       return data;
     } else {
-      console.log(data, "no");
+      // console.log(data, "no");
       formError = data;
       return data;
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 });
 
@@ -45,13 +45,13 @@ export const loginSlice = createSlice({
       state.loading = true;
     },
     [loginUser.fulfilled]: (state, action) => {
-      // console.log(action.payload);
+      console.log(action.payload);
       state.loginState = action.payload;
       state.loading = false;
     },
     [loginUser.rejected]: (state, action) => {
       state.loading = false;
-      // console.log(action.payload);
+      console.log(action.payload);
       state.error = action.payload;
     },
   },
