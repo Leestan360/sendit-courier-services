@@ -190,6 +190,8 @@ GEM
       minitest (~> 5.10)
       railties (~> 7.0.0)
     msgpack (1.6.0)
+    net-http (0.3.0)
+      uri
     net-imap (0.3.1)
       net-protocol
     net-pop (0.1.2)
@@ -284,6 +286,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8.2)
+    uri (0.11.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     websocket-driver (0.7.5)
@@ -310,6 +313,7 @@ DEPENDENCIES
   inherited_resources!
   minitest
   minitest-rails
+  net-http
   pg (~> 1.1)
   puma (~> 5.0)
   pundit
