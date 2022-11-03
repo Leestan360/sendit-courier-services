@@ -23,6 +23,12 @@ const HeroSection = () => {
         <div className="flex flex-col xsm:flex-row text-xl font-bold">
           <button
             className="active:border-2 active:bg-white active:text-blue-800 mr-2 border-2 border-white px-4 rounded-full font-open"
+            // onClick={ handleNavigateAdmin }
+          >
+            <a href="http://localhost:3000/admin">Admin</a>
+          </button>
+          <button
+            className="active:border-2 active:bg-white active:text-blue-800 mr-2 border-2 border-white px-4 rounded-full font-open"
             onClick={handleNavigateLogin}
           >
             Login
