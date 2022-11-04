@@ -23,6 +23,8 @@ gem "rack-cors"
 # rest-client
 gem 'rest-client', '~> 2.0'
 
+gem "net-http"
+
 # Serializer
 gem "active_model_serializers", "~> 0.10.12"
 
