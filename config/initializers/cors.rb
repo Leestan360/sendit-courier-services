@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "https://sendit-courier-services.web.app"
+    origins "https://sendit-courier-services.vercel.app"
 
     resource "*",
       headers: :any,
