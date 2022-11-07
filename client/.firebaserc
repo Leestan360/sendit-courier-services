@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "sendit-courier-services"
+  },
+  "hosting": {
+    "headers": [
+      {
+        "source": "/service-worker.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      }
+    ]
+  }
+}
